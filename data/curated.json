@@ -1,0 +1,47 @@
+[
+ {
+  "platform_id": "coup-code",
+  "platform": "쿠팡",
+  "category": "shopping",
+  "type": "signup",
+  "section": "첫구매 쿠폰",
+  "benefit": "첫구매 최대 26,000원 할인 쿠폰",
+  "condition": "쿠팡 신규 가입 회원",
+  "expiry": "선착순 소진 시까지",
+  "expires_at": null,
+  "code": null,
+  "apply": "쿠팡 가입 후 [마이쿠팡 > 할인쿠폰]에서 첫구매 쿠폰 확인 → 결제 시 적용",
+  "link": "https://www.coupang.com/",
+  "source": "https://benefitshub.co.kr/coup-code/"
+ },
+ {
+  "platform_id": "coup-code",
+  "platform": "쿠팡",
+  "category": "shopping",
+  "type": "member",
+  "section": "웰컴백 쿠폰",
+  "benefit": "최대 26,000원 상당 할인 쿠폰",
+  "condition": "6개월 이상 구매 이력이 없는 회원에게 쿠팡이 직접 발급",
+  "expiry": "발급일로부터 5일",
+  "expires_at": null,
+  "code": null,
+  "apply": "쿠팡 [마이쿠팡 > 할인쿠폰]에서 웰컴백 쿠폰 확인 → 결제 시 적용",
+  "link": "https://www.coupang.com/",
+  "source": "https://benefitshub.co.kr/coup-code/"
+ },
+ {
+  "platform_id": "coupangeats-coupon",
+  "platform": "쿠팡이츠",
+  "category": "shopping",
+  "type": "signup",
+  "section": "신규 가입 쿠폰팩",
+  "benefit": "와우회원 2만원 / 일반회원 1만원 쿠폰팩",
+  "condition": "쿠팡이츠 첫 이용자",
+  "expiry": "발급일로부터 7일",
+  "expires_at": null,
+  "code": null,
+  "apply": "쿠팡이츠 앱 [마이이츠 > 할인쿠폰]에서 쿠폰팩 확인 → 주문 시 적용",
+  "link": "https://www.coupangeats.com/",
+  "source": "https://benefitshub.co.kr/coupangeats-coupon/"
+ }
+]
