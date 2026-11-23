@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gubin0425k-a11y.github.io/couponkok/sitemap.xml
