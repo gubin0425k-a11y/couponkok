@@ -1,4 +1,4 @@
-/* 쿠폰라이브러리 — 정적 프론트엔드 (의존성 없음) */
+/* 쿠폰콕 — 정적 프론트엔드 (의존성 없음) */
 (() => {
   "use strict";
 
@@ -13,7 +13,7 @@
   const CATEGORY_LABEL = { shopping: "쇼핑", travel: "여행", fashion: "패션", card: "카드혜택" };
   const CATEGORY_ORDER = ["all", "shopping", "travel", "fashion", "card"];
 
-  const CONSENT_KEY = "coupon-library:notice-agreed";
+  const CONSENT_KEY = "coupon-kok:notice-agreed";
   const state = { category: "all", platform: "all", type: "all", q: "" };
   let DATA = null;
   let platformById = new Map();
