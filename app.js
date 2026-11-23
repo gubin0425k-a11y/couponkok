@@ -153,9 +153,15 @@
   };
 
   function openLink(href) {
-    const win = window.open(href, "_blank", "noopener,noreferrer");
-    if (win) return;
-    // 팝업이 막히면 같은 탭에서 열어 사용자가 갇히지 않게 한다.
+    // "noopener"을 옵션으로 넘기면 성공해도 null이 돌아와 두 번 열리므로,
+    // 창을 열고 나서 opener만 직접 끊는다.
+    let win = null;
+    try { win = window.open(href, "_blank"); } catch (_) { win = null; }
+    if (win) {
+      try { win.opener = null; } catch (_) { /* 건널 수 없는 창 */ }
+      return;
+    }
+    // 팝업이 막히면 링크 클릭으로 한 번 더 시도해 사용자가 갈힌 채 남지 않게 한다.
     const a = document.createElement("a");
     a.href = href;
     a.target = "_blank";
