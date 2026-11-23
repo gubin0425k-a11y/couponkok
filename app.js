@@ -26,6 +26,7 @@
     for (const [k, v] of Object.entries(props)) {
       if (k === "class") node.className = v;
       else if (k === "text") node.textContent = v;
+      else if (k === "children") { for (const ch of [].concat(v)) if (ch) node.appendChild(ch); }
       else if (k === "html") node.innerHTML = v;
       else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
       else node.setAttribute(k, v);
