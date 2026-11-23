@@ -173,7 +173,7 @@ def column_roles(header: list[str]) -> dict:
     """머리글을 보고 열의 역할을 정한다."""
     roles: dict[str, int] = {}
     for idx, name in enumerate(header):
-        if re.search(r"혜택|할인율|설명|내용", name) and "benefit" not in roles:
+        if re.search(r"혜택|할인율|할인 ?금액|금액|설명|내용", name) and "benefit" not in roles:
             roles["benefit"] = idx
     for idx, name in enumerate(header):
         if idx == roles.get("benefit"):
@@ -183,7 +183,12 @@ def column_roles(header: list[str]) -> dict:
         elif re.search(r"기한|마감|유효|지급일|행사기간", name) and "expiry" not in roles:
             roles["expiry"] = idx
     if "benefit" not in roles and len(header) > 1:
-        roles["benefit"] = 1
+        if re.search(r"기간|마감|기한", header[1]) and len(header) > 1:
+            # "할인 행사 | 행사 기간" 처럼 첫 열이 행사 이름인 표
+            roles["benefit"] = 0
+            roles["expiry"] = 1
+        else:
+            roles["benefit"] = 1
     # 혜택 열 뒤에 머리글이 없는 값이 있으면 기한/조건으로 본다.
     if "expiry" not in roles and "condition" not in roles:
         for idx in range(len(header)):
@@ -207,28 +212,33 @@ def parse_expiry(text: str) -> tuple[str | None, bool]:
     if not text:
         return None, False
     cleaned = one_line(text)
-    if "종료" in cleaned:
+    if "종료됨" in cleaned or cleaned.strip(" .") in ("종료", "마감"):
         return None, True
-    match = re.search(r"(\d{2,4})\s*[./년-]\s*(\d{1,2})\s*[./월-]\s*(\d{1,2})", cleaned)
-    short = False
-    if not match:
-        match = re.search(r"(\d{1,2})\s*[./월]\s*(\d{1,2})", cleaned)
-        short = True
-    if not match:
+
+    full = re.findall(r"(\d{2,4})\s*[./년-]\s*(\d{1,2})\s*[./월-]\s*(\d{1,2})", cleaned)
+    short = [] if full else re.findall(r"(\d{1,2})\s*[./월]\s*(\d{1,2})", cleaned)
+    candidates = full or short
+    if not candidates:
         return None, False
-    if short:
-        year = dt.date.today().year
-        month, day = int(match.group(1)), int(match.group(2))
-    else:
-        year, month, day = (int(g) for g in match.groups())
-    if year < 100:
-        year += 2000
+
+    # "시작 : 11/01 ~ 종료 : 12/03" 처럼 두 날짜가 있으면 끝나는 날짜를 쓴다.
+    pick = candidates[-1] if len(candidates) > 1 and "종료" in cleaned else candidates[0]
     try:
+        if len(pick) == 3:
+            year, month, day = (int(v) for v in pick)
+            if year < 100:
+                year += 2000
+            short_year = len(str(pick[0])) <= 2
+        else:
+            year = dt.date.today().year
+            month, day = int(pick[0]), int(pick[1])
+            short_year = True
         date = dt.date(year, month, day)
     except ValueError:
         return None, False
-    # "~11/30" 처럼 연도가 생략된 경우: 이미 지난 날짜면 다음 해로 본다.
-    if (short or len(match.group(1)) <= 2) and date < dt.date.today() - dt.timedelta(days=200):
+
+    # 연도가 생략된 날짜가 이미 오래전이면 다음 해로 본다.
+    if short_year and date < dt.date.today() - dt.timedelta(days=200):
         try:
             date = date.replace(year=date.year + 1)
         except ValueError:
@@ -303,8 +313,9 @@ def parse_tables(section_title: str, section_html: str, platform_link_cache: dic
                 continue
             first_html = re.search(r"<t[hd][^>]*>(.*?)</t[hd]>", row, re.S)
             first_cell_html = first_html.group(1) if first_html else ""
-            code_match = re.search(r'data-code="([^"]+)"', first_cell_html)
+            code_match = re.search(r'data-code="([^"]+)"', row)
             code = one_line(code_match.group(1)) if code_match else None
+            code_in_first_cell = bool(re.search(r'data-code="', first_cell_html))
 
             def cell(index: str) -> str:
                 pos = roles.get(index)
@@ -324,9 +335,9 @@ def parse_tables(section_title: str, section_html: str, platform_link_cache: dic
 
             if not benefit:
                 continue
-            label = "" if code else cells[0]
+            label = "" if (code and code_in_first_cell) else cells[0]
 
-            data_url = re.search(r'data-url="([^"]+)"', first_cell_html)
+            data_url = re.search(r'data-url="([^"]+)"', row)
             anchor = re.search(r'<a[^>]+href="([^"]+)"', row)
             link = None
             if anchor and not anchor.group(1).startswith(BASE):
@@ -354,6 +365,8 @@ def parse_tables(section_title: str, section_html: str, platform_link_cache: dic
 
 
 def tidy_apply(text: str) -> str:
+    # 안내 문구에 들어 있는 예시 코드(예: (alx224644))는 실제 코드와 달라 혼동을 준다.
+    text = re.sub(r"\s*\((?=[A-Za-z0-9]{5,}\))[A-Za-z0-9]*\d[A-Za-z0-9]*\)", "", text)
     text = re.sub(r"\[[^\]]*(?:Ctrl\+V|붙여넣기)[^\]]*\]", "붙여넣기", text)
     text = re.sub(r"\s*또는\s*붙여넣기", "", text)
     text = re.sub(r"\s*또는\s*", " ", text)
@@ -463,7 +476,7 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
             if row["expired"]:
                 continue
             # 상시 할인가·카테고리 목록처럼 쿠폰 성격이 없는 행은 버린다.
-            if not code and not LINK_PROMO_WORDS.search(benefit):
+            if not code and not LINK_PROMO_WORDS.search(benefit) and not row["expires_at"]:
                 continue
             if len(benefit) > 120:
                 continue
@@ -485,10 +498,10 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
                 apply_text = usage
             else:
                 apply_text = DEFAULT_APPLY[coupon_type]
-            link = row["link"] or OFFICIAL_URLS.get(slug) or f"{BASE}/{slug}/"
-            if BASE in link and OFFICIAL_URLS.get(slug):
-                # 수집 사이트 자신을 가리키는 링크(제휴 리다이렉트 실패)는 공식 사이트로 보낸다.
-                link = OFFICIAL_URLS[slug]
+            generic = (f"{BASE}/{slug}/", f"{BASE}/{slug}", f"{BASE}/{slug}#")
+            link = row["link"] or ""
+            if not link or link in generic:
+                link = OFFICIAL_URLS.get(slug) or f"{BASE}/{slug}/"
             coupons.append({
                 "platform_id": slug,
                 "platform": name,

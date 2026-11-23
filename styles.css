@@ -197,6 +197,53 @@ main { padding: 22px 0 8px; }
 .go svg { width: 13px; height: 13px; opacity: .9; }
 .card.no-code .go { margin-left: 0; flex: 1; justify-content: center; }
 
+/* 면책 동의 모달 */
+.notice {
+  position: fixed; inset: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(12, 14, 18, .55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: notice-fade .16s ease-out;
+}
+.notice[hidden] { display: none; }
+@keyframes notice-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.notice-card {
+  width: min(420px, 100%);
+  background: #fff; border-radius: 18px;
+  padding: 26px 22px 20px;
+  box-shadow: 0 24px 60px rgba(8, 10, 16, .28), 0 2px 6px rgba(8, 10, 16, .12);
+  animation: notice-rise .18s ease-out;
+}
+@keyframes notice-rise { from { transform: translateY(10px) scale(.985); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.notice-text {
+  margin: 0 0 10px;
+  font-weight: 700; color: #111;
+  font-size: 17px; line-height: 1.45; letter-spacing: -0.02em;
+  text-align: center; word-break: keep-all;
+}
+.notice-sub {
+  margin: 0 0 20px;
+  font-size: 12.5px; color: #6b7280; line-height: 1.55;
+  text-align: center; word-break: keep-all;
+}
+
+.notice-actions { display: flex; gap: 10px; }
+.notice-btn {
+  flex: 1; font: inherit; font-size: 14.5px; font-weight: 700;
+  padding: 12px 16px; border-radius: 11px; cursor: pointer;
+  border: 1px solid transparent;
+  transition: background .12s, border-color .12s, filter .12s;
+}
+.notice-btn.decline { background: #eef0f4; color: #4a5160; border-color: #e2e5eb; }
+.notice-btn.decline:hover { background: #e5e8ee; }
+.notice-btn.agree { background: #f97316; color: #fff; box-shadow: 0 4px 12px rgba(249, 115, 22, .28); }
+.notice-btn.agree:hover { filter: brightness(1.06); }
+.notice-btn:focus-visible { outline: 3px solid rgba(47, 91, 234, .35); outline-offset: 2px; }
+
 .empty { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; }
 .skeleton { height: 150px; border-radius: var(--radius); background: linear-gradient(100deg, #eef0f4 30%, #f6f7f9 50%, #eef0f4 70%); background-size: 200% 100%; animation: sk 1.2s infinite; }
 @keyframes sk { to { background-position: -200% 0; } }

@@ -13,9 +13,12 @@
   const CATEGORY_LABEL = { shopping: "쇼핑", travel: "여행", fashion: "패션", card: "카드혜택" };
   const CATEGORY_ORDER = ["all", "shopping", "travel", "fashion", "card"];
 
+  const CONSENT_KEY = "coupon-library:notice-agreed";
   const state = { category: "all", platform: "all", type: "all", q: "" };
   let DATA = null;
   let platformById = new Map();
+  let pendingLink = null;
+  let lastFocused = null;
 
   const $ = (id) => document.getElementById(id);
   const el = (tag, props = {}, children = []) => {
@@ -138,6 +141,80 @@
   /* ---------- 카드 ---------- */
   const ICON_COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 5.5V5a2 2 0 0 0-2-2H5.5A2.5 2.5 0 0 0 3 5.5V13a2 2 0 0 0 2 2h.5"/></svg>';
   const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>';
+
+  /* ---------- 첫 방문 고지 ---------- */
+  const hasConsent = () => {
+    try { return localStorage.getItem(CONSENT_KEY) === "1"; } catch (_) { return consentMemory; }
+  };
+  let consentMemory = false;
+  const saveConsent = () => {
+    consentMemory = true;
+    try { localStorage.setItem(CONSENT_KEY, "1"); } catch (_) { /* 저장이 막힌 브라우저 */ }
+  };
+
+  function openLink(href) {
+    const win = window.open(href, "_blank", "noopener,noreferrer");
+    if (win) return;
+    // 팝업이 막히면 같은 탭에서 열어 사용자가 갇히지 않게 한다.
+    const a = document.createElement("a");
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  function closeModal() {
+    const modal = $("notice");
+    modal.hidden = true;
+    document.body.style.overflow = "";
+    pendingLink = null;
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+
+  function showNotice(trigger) {
+    const modal = $("notice");
+    lastFocused = trigger || document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    $("notice-agree").focus();
+  }
+
+  function initNotice() {
+    $("notice-agree").addEventListener("click", () => {
+      const href = pendingLink;
+      saveConsent();
+      closeModal();
+      if (href) openLink(href);
+    });
+    $("notice-decline").addEventListener("click", closeModal);
+    $("notice").addEventListener("click", (event) => {
+      if (event.target === $("notice")) closeModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if ($("notice").hidden) return;
+      if (event.key === "Escape") { closeModal(); return; }
+      // 모달 밖으로 탭 포커스가 새지 않게 한다.
+      if (event.key === "Tab") {
+        const focusables = [$("notice-decline"), $("notice-agree")];
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        else if (!focusables.includes(document.activeElement)) { event.preventDefault(); first.focus(); }
+      }
+    });
+
+    // 쿠폰 버튼(전용 링크)을 처음 누를 때 한 번만 고지한다.
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest ? event.target.closest("a.go") : null;
+      if (!link || hasConsent()) return;
+      event.preventDefault();
+      pendingLink = link.getAttribute("href");
+      showNotice(link);
+    });
+  }
 
   function copyText(text, button) {
     const done = () => {
@@ -286,6 +363,7 @@
     const stamp = formatDate(data.generated_at);
     $("updated").textContent = `업데이트 ${stamp}`;
     $("updated-foot").textContent = stamp;
+    initNotice();
     renderAll();
 
     let timer;
