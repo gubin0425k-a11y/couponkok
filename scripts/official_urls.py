@@ -26,6 +26,7 @@ OFFICIAL_URLS = {
     "lenovo-promo-code": "https://www.lenovo.com/kr/ko/",
     "lego-promo-code": "https://www.lego.com/ko-kr",
     "casetify-promo-code": "https://www.casetify.com/",
+    "shein-promo-code": "https://kr.shein.com/",
     "donquijote-coupon": "https://www.donki.com/",
     # 여행
     "trip-promo-code": "https://kr.trip.com/",

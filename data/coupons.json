@@ -675,7 +675,7 @@
    "expires_at": null,
    "code": "10FIRST",
    "apply": "할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/24s_promo_code",
+   "link": "https://www.24s.com/ko-kr",
    "source": "https://benefitshub.co.kr/24s-promo-code/",
    "origin": "auto",
    "id": "24s-promo-code-514"
@@ -692,7 +692,7 @@
    "expires_at": null,
    "code": "FIRST10",
    "apply": "할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/24s_promo_code",
+   "link": "https://www.24s.com/ko-kr",
    "source": "https://benefitshub.co.kr/24s-promo-code/",
    "origin": "auto",
    "id": "24s-promo-code-515"
@@ -709,7 +709,7 @@
    "expires_at": null,
    "code": "FIRST15",
    "apply": "할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/24s_promo_code",
+   "link": "https://www.24s.com/ko-kr",
    "source": "https://benefitshub.co.kr/24s-promo-code/",
    "origin": "auto",
    "id": "24s-promo-code-516"
@@ -726,7 +726,7 @@
    "expires_at": null,
    "code": "FIRST30",
    "apply": "할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/24s_promo_code",
+   "link": "https://www.24s.com/ko-kr",
    "source": "https://benefitshub.co.kr/24s-promo-code/",
    "origin": "auto",
    "id": "24s-promo-code-517"
@@ -998,7 +998,7 @@
    "expires_at": null,
    "code": null,
    "apply": "이동한 페이지에서 [쿠폰 다운받기]를 클릭합니다",
-   "link": "https://benefitshub.co.kr/cjmarket_coupon",
+   "link": "https://www.cjthemarket.com/",
    "source": "https://benefitshub.co.kr/cjmarket-coupon/",
    "origin": "auto",
    "id": "cjmarket-coupon-78"
@@ -1151,7 +1151,7 @@
    "expires_at": null,
    "code": "JOINCOS",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_korea",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-573"
@@ -1168,7 +1168,7 @@
    "expires_at": null,
    "code": "COSNEW10",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_us",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-574"
@@ -1185,7 +1185,7 @@
    "expires_at": null,
    "code": "WELCOM10",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_japan",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-575"
@@ -1219,7 +1219,7 @@
    "expires_at": null,
    "code": "MEMBERS10",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_korea",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-570"
@@ -1236,7 +1236,7 @@
    "expires_at": null,
    "code": "TEXTHELLOCOS",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_us",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-571"
@@ -1253,7 +1253,7 @@
    "expires_at": null,
    "code": "JUSTFORYOU",
    "apply": "[프로모션 코드] 입력창을 활성화해줍니다 → [할인코드] 입력란에 붙여넣기합니다",
-   "link": "https://benefitshub.co.kr/cos_promocode_us",
+   "link": "https://www.cos.com/ko-kr",
    "source": "https://benefitshub.co.kr/cos-promo-code/",
    "origin": "auto",
    "id": "cos-promo-code-572"
@@ -1270,7 +1270,7 @@
    "expires_at": null,
    "code": "FWRD20",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-621"
@@ -1287,7 +1287,7 @@
    "expires_at": null,
    "code": "FWRDWELCOME10",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-627"
@@ -1304,7 +1304,7 @@
    "expires_at": null,
    "code": "CANDY",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-623"
@@ -1321,7 +1321,7 @@
    "expires_at": null,
    "code": "TULIP",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-624"
@@ -1338,7 +1338,7 @@
    "expires_at": null,
    "code": "FWRD10",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-622"
@@ -1355,7 +1355,7 @@
    "expires_at": null,
    "code": "FWRDIPAD15",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-626"
@@ -1372,7 +1372,7 @@
    "expires_at": null,
    "code": "FWRDIPHONE15",
    "apply": "결제 페이지에서 [프로모션 코드]를 클릭하여 코드 입력창을 활성화 합니다 → 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/fwrd_promo_code",
+   "link": "https://www.fwrd.com/",
    "source": "https://benefitshub.co.kr/fwrd-promo-code/",
    "origin": "auto",
    "id": "fwrd-promo-code-625"
@@ -1695,7 +1695,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/hbx_promo_code",
+   "link": "https://hbx.com/",
    "source": "https://benefitshub.co.kr/hbx-promo-code/",
    "origin": "auto",
    "id": "hbx-promo-code-638"
@@ -1797,7 +1797,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/ihg-membership/",
+   "link": "https://www.ihg.com/",
    "source": "https://benefitshub.co.kr/ihg-promotion/",
    "origin": "auto",
    "id": "ihg-promotion-477"
@@ -1916,7 +1916,7 @@
    "expires_at": null,
    "code": "BENE7K",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-317"
@@ -1933,7 +1933,7 @@
    "expires_at": null,
    "code": "BENE30K",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-316"
@@ -1950,7 +1950,7 @@
    "expires_at": null,
    "code": "KKAUTUMN3K",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-318"
@@ -1967,7 +1967,7 @@
    "expires_at": null,
    "code": "WELCOMEAPP04",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-320"
@@ -1984,7 +1984,7 @@
    "expires_at": null,
    "code": "APPFIRSTBUY",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-319"
@@ -2256,7 +2256,7 @@
    "expires_at": null,
    "code": "WELCOMEAPP05",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-321"
@@ -2290,7 +2290,7 @@
    "expires_at": null,
    "code": "26VISA10",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_visa_promo",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-357"
@@ -2307,7 +2307,7 @@
    "expires_at": null,
    "code": "26VISA05",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_visa_promo",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-356"
@@ -2324,7 +2324,7 @@
    "expires_at": null,
    "code": "26MASTER10",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_master_promo",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-359"
@@ -2341,7 +2341,7 @@
    "expires_at": null,
    "code": "26MASTER05",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_master_promo",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-358"
@@ -2545,7 +2545,7 @@
    "expires_at": null,
    "code": "KKTRF02",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-323"
@@ -2613,7 +2613,7 @@
    "expires_at": null,
    "code": "KKEARLYBIRD5",
    "apply": "연결된 링크 페이지에서 할인쿠폰 코드를 다운로드 받습니다 → 쿠폰 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/kkday_promo_code",
+   "link": "https://www.kkday.com/ko",
    "source": "https://benefitshub.co.kr/kkday-promo-code/",
    "origin": "auto",
    "id": "kkday-promo-code-322"
@@ -2698,7 +2698,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 페이지에서 [할인쿠폰 받기]를 클릭합니다 → 예약 페이지에서 할인 탭에서 [쿠폰 할인]을 클릭합니다",
-   "link": "https://benefitshub.co.kr/yanolja_coupon_domestic",
+   "link": "https://nol.yanolja.com/",
    "source": "https://benefitshub.co.kr/yanolja-promo-code/",
    "origin": "auto",
    "id": "yanolja-promo-code-394"
@@ -2800,7 +2800,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 페이지에서 [할인쿠폰 받기]를 클릭합니다 → 예약 페이지에서 할인 탭에서 [쿠폰 할인]을 클릭합니다",
-   "link": "https://benefitshub.co.kr/yanolja_coupon_flight",
+   "link": "https://nol.yanolja.com/",
    "source": "https://benefitshub.co.kr/yanolja-promo-code/",
    "origin": "auto",
    "id": "yanolja-promo-code-396"
@@ -3293,7 +3293,7 @@
    "expires_at": null,
    "code": null,
    "apply": "이동한 페이지에서 [쿠폰 다운받기]를 클릭합니다",
-   "link": "https://benefitshub.co.kr/wconcept_coupon",
+   "link": "https://www.wconcept.co.kr/",
    "source": "https://benefitshub.co.kr/wconcept-coupon/",
    "origin": "auto",
    "id": "wconcept-coupon-510"
@@ -3310,7 +3310,7 @@
    "expires_at": null,
    "code": null,
    "apply": "이동한 페이지에서 [쿠폰 다운받기]를 클릭합니다",
-   "link": "https://benefitshub.co.kr/wconcept_coupon",
+   "link": "https://www.wconcept.co.kr/",
    "source": "https://benefitshub.co.kr/wconcept-coupon/",
    "origin": "auto",
    "id": "wconcept-coupon-506"
@@ -3395,7 +3395,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/yoox_promo_code",
+   "link": "https://www.yoox.com/",
    "source": "https://benefitshub.co.kr/yoox-promo-code/",
    "origin": "auto",
    "id": "yoox-promo-code-753"
@@ -3650,7 +3650,7 @@
    "expires_at": null,
    "code": "MC2026",
    "apply": "YOOX코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/yoox_promo_code",
+   "link": "https://www.yoox.com/",
    "source": "https://benefitshub.co.kr/yoox-promo-code/",
    "origin": "auto",
    "id": "yoox-promo-code-754"
@@ -3667,7 +3667,7 @@
    "expires_at": null,
    "code": "LOVE15",
    "apply": "겟유어가이드 결제 단계에서 [할인코드 입력] 버튼을 눌러 입력란을 활성화 합니다 → 붙여넣기를 하여 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/getyourguide_promo_code",
+   "link": "https://www.getyourguide.com/ko-kr/",
    "source": "https://benefitshub.co.kr/getyourguide-promo-code/",
    "origin": "auto",
    "id": "getyourguide-promo-code-465"
@@ -3684,7 +3684,7 @@
    "expires_at": null,
    "code": "APP15",
    "apply": "쇼핑백 페이지에서 [프로모션 코드] 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다 → [적용] 버튼을 눌러 할인이 적용된 금액을 확인 후, 구매를 진행합니다",
-   "link": "https://benefitshub.co.kr/netaporter_promo_code",
+   "link": "https://www.net-a-porter.com/",
    "source": "https://benefitshub.co.kr/netaporter-promo-code/",
    "origin": "auto",
    "id": "netaporter-promo-code-694"
@@ -3701,7 +3701,7 @@
    "expires_at": null,
    "code": "NAP15FPX",
    "apply": "쇼핑백 페이지에서 [프로모션 코드] 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다 → [적용] 버튼을 눌러 할인이 적용된 금액을 확인 후, 구매를 진행합니다",
-   "link": "https://benefitshub.co.kr/netaporter_promo_code",
+   "link": "https://www.net-a-porter.com/",
    "source": "https://benefitshub.co.kr/netaporter-promo-code/",
    "origin": "auto",
    "id": "netaporter-promo-code-693"
@@ -3718,7 +3718,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/jomashop_promo_code",
+   "link": "https://www.net-a-porter.com/",
    "source": "https://benefitshub.co.kr/netaporter-promo-code/",
    "origin": "auto",
    "id": "netaporter-promo-code-695"
@@ -3752,7 +3752,7 @@
    "expires_at": null,
    "code": "FIRST15",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-743"
@@ -3786,7 +3786,7 @@
    "expires_at": null,
    "code": "FIRST15",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-747"
@@ -3871,7 +3871,7 @@
    "expires_at": null,
    "code": "NEXT20",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-746"
@@ -3888,7 +3888,7 @@
    "expires_at": null,
    "code": "EXTRA20",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-741"
@@ -3905,7 +3905,7 @@
    "expires_at": null,
    "code": "NEXT20",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-742"
@@ -3922,7 +3922,7 @@
    "expires_at": null,
    "code": "EXTRA20",
    "apply": "THE OUTNET코드 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theoutnet_promo_code",
+   "link": "https://www.theoutnet.com/",
    "source": "https://benefitshub.co.kr/theoutnet-promo-code/",
    "origin": "auto",
    "id": "theoutnet-promo-code-745"
@@ -3939,7 +3939,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/donqui_coupon_5",
+   "link": "https://www.donki.com/",
    "source": "https://benefitshub.co.kr/donquijote-coupon/",
    "origin": "auto",
    "id": "donquijote-coupon-170"
@@ -3956,7 +3956,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/donqui_coupon_7",
+   "link": "https://www.donki.com/",
    "source": "https://benefitshub.co.kr/donquijote-coupon/",
    "origin": "auto",
    "id": "donquijote-coupon-171"
@@ -3973,7 +3973,7 @@
    "expires_at": null,
    "code": "HELLO10",
    "apply": "장바구니 페이지에서 [할인코드] 입력란에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/diesel_promo_code",
+   "link": "https://www.diesel.com/",
    "source": "https://benefitshub.co.kr/diesel-promo-code/",
    "origin": "auto",
    "id": "diesel-promo-code-595"
@@ -3990,7 +3990,7 @@
    "expires_at": null,
    "code": "APPX15",
    "apply": "장바구니 페이지에서 [프로모션 코드] 입력란에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/theory_promo_code",
+   "link": "https://www.theory.com/",
    "source": "https://benefitshub.co.kr/theory-promo-code/",
    "origin": "auto",
    "id": "theory-promo-code-740"
@@ -4007,7 +4007,7 @@
    "expires_at": "2026-12-01",
    "code": "VISAGLOBAL8",
    "apply": "프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다 → 프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다",
-   "link": "https://benefitshub.co.kr/rakuten_visa",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-268"
@@ -4024,7 +4024,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/rakuten_new",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-270"
@@ -4058,7 +4058,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/rakuten_special_coupon",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-274"
@@ -4092,7 +4092,7 @@
    "expires_at": "2026-12-30",
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/rakuten_master",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-271"
@@ -4109,7 +4109,7 @@
    "expires_at": null,
    "code": "VISAGLOBAL5",
    "apply": "프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다 → 프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다",
-   "link": "https://benefitshub.co.kr/rakuten_visa",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-273"
@@ -4126,7 +4126,7 @@
    "expires_at": null,
    "code": "VISAGLOBAL8",
    "apply": "프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다 → 프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다",
-   "link": "https://benefitshub.co.kr/rakuten_visa",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-272"
@@ -4143,7 +4143,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/rakuten_master",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-277"
@@ -4160,7 +4160,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/rakuten_kb",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-278"
@@ -4177,7 +4177,7 @@
    "expires_at": "2026-12-01",
    "code": "VISAGLOBAL5",
    "apply": "프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다 → 프로모션 코드/쿠폰 입력란에 붙여넣기를 누릅니다",
-   "link": "https://benefitshub.co.kr/rakuten_visa",
+   "link": "https://travel.rakuten.com/kor/ko-kr/",
    "source": "https://benefitshub.co.kr/rakuten-travel-promo-code/",
    "origin": "auto",
    "id": "rakuten-travel-promo-code-269"
@@ -4279,7 +4279,7 @@
    "expires_at": null,
    "code": "GOBE10",
    "apply": "[장바구니] 창에서 [프로모션/레고 할인코드 추가]를 클릭 후 [할인코드] 입력란에 붙여넣기합니다 → 레고에서 원하는 상품을 고르고 [장바구니 담기]를 클릭합니다",
-   "link": "https://benefitshub.co.kr/lego_promo_code",
+   "link": "https://www.lego.com/ko-kr",
    "source": "https://benefitshub.co.kr/lego-promo-code/",
    "origin": "auto",
    "id": "lego-promo-code-157"
@@ -5078,7 +5078,7 @@
    "expires_at": "2026-11-27",
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/myprotein_blackfriday",
+   "link": "https://www.myprotein.co.kr/",
    "source": "https://benefitshub.co.kr/myprotein-promo-code/",
    "origin": "auto",
    "id": "myprotein-promo-code-71"
@@ -5282,7 +5282,7 @@
    "expires_at": null,
    "code": "APP15",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-662"
@@ -5299,7 +5299,7 @@
    "expires_at": null,
    "code": "APP15",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-672"
@@ -5316,7 +5316,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-671"
@@ -5333,7 +5333,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-665"
@@ -5435,7 +5435,7 @@
    "expires_at": null,
    "code": "BRONZEWELCOME",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-664"
@@ -5452,7 +5452,7 @@
    "expires_at": null,
    "code": "WB15MRP",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-663"
@@ -5469,7 +5469,7 @@
    "expires_at": null,
    "code": "BRONZEWELCOME",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-674"
@@ -5486,7 +5486,7 @@
    "expires_at": null,
    "code": "WB15MRP",
    "apply": "우측에 [프로모션 코드 입력란]에 붙여넣기를 눌러 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/mrporter_promo_code",
+   "link": "https://www.mrporter.com/",
    "source": "https://benefitshub.co.kr/mrporter-promo-code/",
    "origin": "auto",
    "id": "mrporter-promo-code-673"
@@ -5622,7 +5622,7 @@
    "expires_at": null,
    "code": "101166189",
    "apply": "쉽게 입력하는 방법 → 직접 입력하는 방법",
-   "link": "https://benefitshub.co.kr/metree_join_code",
+   "link": "https://www.metree.co.kr/",
    "source": "https://benefitshub.co.kr/metree-promo-code/",
    "origin": "auto",
    "id": "metree-promo-code-108"
@@ -5673,7 +5673,7 @@
    "expires_at": null,
    "code": "697321",
    "apply": "맨 하단의 [추천인코드] 입력 란에 “697321“을 입력 후 회원 가입을 완료합니다 → 민다의 추천인 코드 사용 방법은 매우 간단합니다",
-   "link": "https://benefitshub.co.kr/minda_ref",
+   "link": "https://www.theminda.com/",
    "source": "https://benefitshub.co.kr/minda-coupon/",
    "origin": "auto",
    "id": "minda-coupon-466"
@@ -5690,7 +5690,7 @@
    "expires_at": "2027-11-16",
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/booking_promotion",
+   "link": "https://www.booking.com/",
    "source": "https://benefitshub.co.kr/booking-promo-code/",
    "origin": "auto",
    "id": "booking-promo-code-262"
@@ -5707,7 +5707,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/booking_promotion",
+   "link": "https://www.booking.com/",
    "source": "https://benefitshub.co.kr/booking-promo-code/",
    "origin": "auto",
    "id": "booking-promo-code-265"
@@ -5724,7 +5724,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/booking_rentcar_coupon",
+   "link": "https://www.booking.com/",
    "source": "https://benefitshub.co.kr/booking-promo-code/",
    "origin": "auto",
    "id": "booking-promo-code-264"
@@ -5741,7 +5741,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/booking_hotel_coupon",
+   "link": "https://www.booking.com/",
    "source": "https://benefitshub.co.kr/booking-promo-code/",
    "origin": "auto",
    "id": "booking-promo-code-263"
@@ -6387,7 +6387,7 @@
    "expires_at": null,
    "code": "SAIBH15",
    "apply": "[쿠폰이 있나요?] 버튼을 클릭하여 쿠폰 코드 입력창을 활성화 합니다 → 복사한 쿠폰코드를 입력한 후 [적용] 버튼을 누릅니다",
-   "link": "https://benefitshub.co.kr/saily_poromo_code",
+   "link": "https://saily.com/ko/",
    "source": "https://benefitshub.co.kr/saily-promo-code/",
    "origin": "auto",
    "id": "saily-promo-code-470"
@@ -6404,7 +6404,7 @@
    "expires_at": null,
    "code": "SAIBH10",
    "apply": "[쿠폰이 있나요?] 버튼을 클릭하여 쿠폰 코드 입력창을 활성화 합니다 → 복사한 쿠폰코드를 입력한 후 [적용] 버튼을 누릅니다",
-   "link": "https://benefitshub.co.kr/saily_poromo_code",
+   "link": "https://saily.com/ko/",
    "source": "https://benefitshub.co.kr/saily-promo-code/",
    "origin": "auto",
    "id": "saily-promo-code-469"
@@ -6421,7 +6421,7 @@
    "expires_at": null,
    "code": "FIRST5",
    "apply": "우측 상단에 있는 [할인코드] 입력란에서 붙여넣기를 하여 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/cettire_code",
+   "link": "https://www.cettire.com/",
    "source": "https://benefitshub.co.kr/cettire-promo-code/",
    "origin": "auto",
    "id": "cettire-promo-code-538"
@@ -6778,7 +6778,7 @@
    "expires_at": null,
    "code": "BLACK5",
    "apply": "우측 상단에 있는 [할인코드] 입력란에서 붙여넣기를 하여 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/cettire_code",
+   "link": "https://www.cettire.com/",
    "source": "https://benefitshub.co.kr/cettire-promo-code/",
    "origin": "auto",
    "id": "cettire-promo-code-537"
@@ -6846,7 +6846,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 할인코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/shein_season_coupon",
+   "link": "https://kr.shein.com/",
    "source": "https://benefitshub.co.kr/shein-promo-code/",
    "origin": "auto",
    "id": "shein-promo-code-786"
@@ -6863,7 +6863,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 할인코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/shein_season_coupon",
+   "link": "https://kr.shein.com/",
    "source": "https://benefitshub.co.kr/shein-promo-code/",
    "origin": "auto",
    "id": "shein-promo-code-787"
@@ -6880,7 +6880,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 할인코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/shein_season_coupon",
+   "link": "https://kr.shein.com/",
    "source": "https://benefitshub.co.kr/shein-promo-code/",
    "origin": "auto",
    "id": "shein-promo-code-785"
@@ -6982,7 +6982,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/swarovski_promo_code",
+   "link": "https://www.swarovski.com/ko-KR/",
    "source": "https://benefitshub.co.kr/swarovski-promo-code/",
    "origin": "auto",
    "id": "swarovski-promo-code-738"
@@ -6999,7 +6999,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/swarovski_promo_code",
+   "link": "https://www.swarovski.com/ko-KR/",
    "source": "https://benefitshub.co.kr/swarovski-promo-code/",
    "origin": "auto",
    "id": "swarovski-promo-code-739"
@@ -7118,7 +7118,7 @@
    "expires_at": "2026-11-30",
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/npay_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-225"
@@ -7135,7 +7135,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/shinhan_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-240"
@@ -7152,7 +7152,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/samsung_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-239"
@@ -7169,7 +7169,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/kb_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-238"
@@ -7186,7 +7186,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/master_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-237"
@@ -7203,7 +7203,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/kakao_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-234"
@@ -7220,7 +7220,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/toss_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-235"
@@ -7237,7 +7237,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/visa_agoda_promo",
+   "link": "https://www.agoda.com/ko-kr/",
    "source": "https://benefitshub.co.kr/agoda-promo-code/",
    "origin": "auto",
    "id": "agoda-promo-code-236"
@@ -7458,7 +7458,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/arket_promo_code_kr",
+   "link": "https://www.arket.com/",
    "source": "https://benefitshub.co.kr/arket-promo-code/",
    "origin": "auto",
    "id": "arket-promo-code-536"
@@ -7475,7 +7475,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/arket_promo_code_kr",
+   "link": "https://www.arket.com/",
    "source": "https://benefitshub.co.kr/arket-promo-code/",
    "origin": "auto",
    "id": "arket-promo-code-535"
@@ -7509,7 +7509,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/arket_promo_code_kr",
+   "link": "https://www.arket.com/",
    "source": "https://benefitshub.co.kr/arket-promo-code/",
    "origin": "auto",
    "id": "arket-promo-code-533"
@@ -7526,7 +7526,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/arket_promo_code_kr",
+   "link": "https://www.arket.com/",
    "source": "https://benefitshub.co.kr/arket-promo-code/",
    "origin": "auto",
    "id": "arket-promo-code-534"
@@ -7543,7 +7543,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/arket_promo_code_kr",
+   "link": "https://www.arket.com/",
    "source": "https://benefitshub.co.kr/arket-promo-code/",
    "origin": "auto",
    "id": "arket-promo-code-532"
@@ -7645,7 +7645,7 @@
    "expires_at": null,
    "code": "KRNEW20",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-64"
@@ -7662,7 +7662,7 @@
    "expires_at": "2027-01-01",
    "code": "MYAPP15",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-65"
@@ -7679,7 +7679,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/iherb_trial_pricing",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-69"
@@ -7696,7 +7696,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/iherb_deals",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-68"
@@ -7713,7 +7713,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 카드·간편결제로 결제하면 자동 적용",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-70"
@@ -7764,7 +7764,7 @@
    "expires_at": "2026-12-01",
    "code": "SAVEBH20",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-61"
@@ -7781,7 +7781,7 @@
    "expires_at": "2026-11-26",
    "code": "NOVAPAC26",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-60"
@@ -7798,7 +7798,7 @@
    "expires_at": null,
    "code": "GOLDKR",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-62"
@@ -7815,7 +7815,7 @@
    "expires_at": null,
    "code": "GOLD120",
    "apply": "[장바구니] 창에서 할인코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/iherb_code_120",
+   "link": "https://kr.iherb.com/",
    "source": "https://benefitshub.co.kr/iherb-promo-code/",
    "origin": "auto",
    "id": "iherb-promo-code-63"
@@ -7832,7 +7832,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/aloyoga_promo_code",
+   "link": "https://www.aloyoga.com/",
    "source": "https://benefitshub.co.kr/aloyoga-promo-code/",
    "origin": "auto",
    "id": "aloyoga-promo-code-773"
@@ -7917,7 +7917,7 @@
    "expires_at": null,
    "code": "MOVES20",
    "apply": "우측에 있는 [할인 코드 기프트 카드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/aloyoga_promo_code",
+   "link": "https://www.aloyoga.com/",
    "source": "https://benefitshub.co.kr/aloyoga-promo-code/",
    "origin": "auto",
    "id": "aloyoga-promo-code-771"
@@ -7934,7 +7934,7 @@
    "expires_at": null,
    "code": "EREWHON20",
    "apply": "우측에 있는 [할인 코드 기프트 카드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/aloyoga_promo_code",
+   "link": "https://www.aloyoga.com/",
    "source": "https://benefitshub.co.kr/aloyoga-promo-code/",
    "origin": "auto",
    "id": "aloyoga-promo-code-772"
@@ -7951,7 +7951,7 @@
    "expires_at": null,
    "code": "AYADVOCATE",
    "apply": "우측에 있는 [할인 코드 기프트 카드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/aloyoga_promo_code",
+   "link": "https://www.aloyoga.com/",
    "source": "https://benefitshub.co.kr/aloyoga-promo-code/",
    "origin": "auto",
    "id": "aloyoga-promo-code-770"
@@ -7968,7 +7968,7 @@
    "expires_at": null,
    "code": "AYPROPROGRAM",
    "apply": "우측에 있는 [할인 코드 기프트 카드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/aloyoga_promo_code",
+   "link": "https://www.aloyoga.com/",
    "source": "https://benefitshub.co.kr/aloyoga-promo-code/",
    "origin": "auto",
    "id": "aloyoga-promo-code-769"
@@ -7985,7 +7985,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_arrivalsnew",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-38"
@@ -8019,7 +8019,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_globalpick",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-40"
@@ -8036,7 +8036,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_best_seller",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-39"
@@ -8087,7 +8087,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_alifresh",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-37"
@@ -8104,7 +8104,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_deals",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-35"
@@ -8121,7 +8121,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_rank",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-41"
@@ -8138,7 +8138,7 @@
    "expires_at": null,
    "code": null,
    "apply": "연결된 링크 페이지에 동일한 프로모션 코드가 있는 경우, 클릭해서 다운로드합니다 → 결제 페이지에서 프로모션 코드 입력란에 붙여넣기를 선택합니다",
-   "link": "https://benefitshub.co.kr/aliexpress_afashion",
+   "link": "https://ko.aliexpress.com/",
    "source": "https://benefitshub.co.kr/a-promo-code/",
    "origin": "auto",
    "id": "a-promo-code-36"
@@ -9022,7 +9022,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/ohou_first",
+   "link": "https://ohou.se/",
    "source": "https://benefitshub.co.kr/ohou-promo-code/",
    "origin": "auto",
    "id": "ohou-promo-code-97"
@@ -9226,7 +9226,7 @@
    "expires_at": "2026-11-30",
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/usimsa_coupon",
+   "link": "https://usimsa.com/",
    "source": "https://benefitshub.co.kr/usimsa-coupon/",
    "origin": "auto",
    "id": "usimsa-coupon-471"
@@ -9260,7 +9260,7 @@
    "expires_at": null,
    "code": "EXP7",
    "apply": "쿠폰 코드 입력란에 붙여넣기를 선택하고 [적용] 버튼을 누릅니다 → 할인코드를 제대로 적용하려면 몇 가지 주의사항이 있습니다",
-   "link": "https://benefitshub.co.kr/lp_expedia_promo_code7",
+   "link": "https://www.expedia.co.kr/",
    "source": "https://benefitshub.co.kr/expedia-promo-code/",
    "origin": "auto",
    "id": "expedia-promo-code-267"
@@ -9277,7 +9277,7 @@
    "expires_at": null,
    "code": "EXP5",
    "apply": "쿠폰 코드 입력란에 붙여넣기를 선택하고 [적용] 버튼을 누릅니다 → 할인코드를 제대로 적용하려면 몇 가지 주의사항이 있습니다",
-   "link": "https://benefitshub.co.kr/lp_expedia_promo_code5",
+   "link": "https://www.expedia.co.kr/",
    "source": "https://benefitshub.co.kr/expedia-promo-code/",
    "origin": "auto",
    "id": "expedia-promo-code-266"
@@ -9413,7 +9413,7 @@
    "expires_at": null,
    "code": "interparkh26",
    "apply": "[쿠폰등록]을 클릭하여 복사된 할인코드를 입력하여 쿠폰을 등록합니다 → 회원정보에서 [마이투어]를 클릭하고 [할인쿠폰]을 클릭합니다",
-   "link": "https://benefitshub.co.kr/interparktour_coupon",
+   "link": "https://tour.interpark.com/",
    "source": "https://benefitshub.co.kr/interparktour-coupon/",
    "origin": "auto",
    "id": "interparktour-coupon-441"
@@ -9600,7 +9600,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/jomashop_promo_code",
+   "link": "https://www.jomashop.com/",
    "source": "https://benefitshub.co.kr/jomashop-promo-code/",
    "origin": "auto",
    "id": "jomashop-promo-code-147"
@@ -9617,7 +9617,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/jomashop_promo_code",
+   "link": "https://www.jomashop.com/",
    "source": "https://benefitshub.co.kr/jomashop-promo-code/",
    "origin": "auto",
    "id": "jomashop-promo-code-154"
@@ -10042,7 +10042,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/zigzag_promo_code",
+   "link": "https://zigzag.kr/",
    "source": "https://benefitshub.co.kr/zigzag-coupon/",
    "origin": "auto",
    "id": "zigzag-coupon-504"
@@ -10059,7 +10059,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/zigzag_promo_code",
+   "link": "https://zigzag.kr/",
    "source": "https://benefitshub.co.kr/zigzag-coupon/",
    "origin": "auto",
    "id": "zigzag-coupon-498"
@@ -10076,7 +10076,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/zigzag_promo_code",
+   "link": "https://zigzag.kr/",
    "source": "https://benefitshub.co.kr/zigzag-coupon/",
    "origin": "auto",
    "id": "zigzag-coupon-497"
@@ -10110,7 +10110,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/giglio_promo_code",
+   "link": "https://www.giglio.com/",
    "source": "https://benefitshub.co.kr/giglio-promo-code/",
    "origin": "auto",
    "id": "giglio-promo-code-635"
@@ -10127,7 +10127,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/giglio_promo_code",
+   "link": "https://www.giglio.com/",
    "source": "https://benefitshub.co.kr/giglio-promo-code/",
    "origin": "auto",
    "id": "giglio-promo-code-631"
@@ -10144,7 +10144,7 @@
    "expires_at": null,
    "code": "KBAUG5",
    "apply": "장바구니 페이지에서 [프로모션 코드] 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/giglio_promo_code",
+   "link": "https://www.giglio.com/",
    "source": "https://benefitshub.co.kr/giglio-promo-code/",
    "origin": "auto",
    "id": "giglio-promo-code-634"
@@ -10161,7 +10161,7 @@
    "expires_at": null,
    "code": "KBAUG5",
    "apply": "장바구니 페이지에서 [프로모션 코드] 입력란에 붙여넣기를 눌러 프로모션 코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/giglio_promo_code",
+   "link": "https://www.giglio.com/",
    "source": "https://benefitshub.co.kr/giglio-promo-code/",
    "origin": "auto",
    "id": "giglio-promo-code-630"
@@ -10399,7 +10399,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/eats_coupon",
+   "link": "https://www.coupangeats.com/",
    "source": "https://benefitshub.co.kr/coupangeats-coupon/",
    "origin": "auto",
    "id": "coupangeats-coupon-0"
@@ -10433,7 +10433,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/eats_roulette",
+   "link": "https://www.coupangeats.com/",
    "source": "https://benefitshub.co.kr/coupangeats-coupon/",
    "origin": "auto",
    "id": "coupangeats-coupon-1"
@@ -10501,7 +10501,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/cros_club",
+   "link": "https://www.crocs.co.kr/",
    "source": "https://benefitshub.co.kr/crocs-coupon-code/",
    "origin": "auto",
    "id": "crocs-coupon-code-586"
@@ -10535,7 +10535,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/cros_club",
+   "link": "https://www.crocs.co.kr/",
    "source": "https://benefitshub.co.kr/crocs-coupon-code/",
    "origin": "auto",
    "id": "crocs-coupon-code-583"
@@ -10926,7 +10926,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/clio_gift",
+   "link": "https://www.clubclio.com/",
    "source": "https://benefitshub.co.kr/club-clio-coupon/",
    "origin": "auto",
    "id": "club-clio-coupon-128"
@@ -10960,7 +10960,7 @@
    "expires_at": "2026-11-30",
    "code": "렌터카10%KLK",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-294"
@@ -10977,7 +10977,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600002",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-292"
@@ -10994,7 +10994,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600003",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-293"
@@ -11011,7 +11011,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600001",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-291"
@@ -11028,7 +11028,7 @@
    "expires_at": null,
    "code": "BETTERONAPP",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-300"
@@ -11045,7 +11045,7 @@
    "expires_at": null,
    "code": "HOTELONAPP",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_hotel",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-301"
@@ -11300,7 +11300,7 @@
    "expires_at": "2026-11-30",
    "code": "렌터카10%KLK",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-284"
@@ -11317,7 +11317,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600001",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-281"
@@ -11334,7 +11334,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600002",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-282"
@@ -11351,7 +11351,7 @@
    "expires_at": "2026-11-30",
    "code": "KLOOKBH2600003",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-283"
@@ -11368,7 +11368,7 @@
    "expires_at": "2026-12-31",
    "code": "KLKUSCAR10%",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-289"
@@ -11385,7 +11385,7 @@
    "expires_at": "2026-11-30",
    "code": "KLKEUTOUR20%",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-285"
@@ -11402,7 +11402,7 @@
    "expires_at": "2026-12-31",
    "code": "KLKJPCAR20000",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-288"
@@ -11419,7 +11419,7 @@
    "expires_at": "2026-12-31",
    "code": "KLKJPCAR20000",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-296"
@@ -11436,7 +11436,7 @@
    "expires_at": "2026-11-30",
    "code": "BUSLAUNCH5",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-286"
@@ -11453,7 +11453,7 @@
    "expires_at": "2026-12-31",
    "code": "일본어트랙션5%",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-287"
@@ -11470,7 +11470,7 @@
    "expires_at": "2026-12-31",
    "code": "일본어트랙션5%",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-297"
@@ -11487,7 +11487,7 @@
    "expires_at": "2026-12-31",
    "code": "일본어트랙션5%",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-295"
@@ -11504,7 +11504,7 @@
    "expires_at": "2026-12-31",
    "code": "CNESIM99OFF",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-290"
@@ -11521,7 +11521,7 @@
    "expires_at": "2026-12-31",
    "code": "CNESIM99OFF",
    "apply": "연결된 링크 페이지에 동일한 할인 코드가 있는 경우, 클릭해서 다운로드합니다 → [프로필 > 쿠폰] 페이지에서 할인 코드 입력란에 붙여넣기를 선택하고 등록을 누릅니다",
-   "link": "https://benefitshub.co.kr/klook_promo_code",
+   "link": "https://www.klook.com/ko/",
    "source": "https://benefitshub.co.kr/klook-promo-code/",
    "origin": "auto",
    "id": "klook-promo-code-298"
@@ -11606,7 +11606,7 @@
    "expires_at": null,
    "code": null,
    "apply": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/temu_coupon",
+   "link": "https://www.temu.com/kr",
    "source": "https://benefitshub.co.kr/temu-coupon-promo-code/",
    "origin": "auto",
    "id": "temu-coupon-promo-code-48"
@@ -11725,7 +11725,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/temu_hot_sale",
+   "link": "https://www.temu.com/kr",
    "source": "https://benefitshub.co.kr/temu-coupon-promo-code/",
    "origin": "auto",
    "id": "temu-coupon-promo-code-57"
@@ -11742,7 +11742,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/temu_inventory",
+   "link": "https://www.temu.com/kr",
    "source": "https://benefitshub.co.kr/temu-coupon-promo-code/",
    "origin": "auto",
    "id": "temu-coupon-promo-code-43"
@@ -11759,7 +11759,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/temu_coupon",
+   "link": "https://www.temu.com/kr",
    "source": "https://benefitshub.co.kr/temu-coupon-promo-code/",
    "origin": "auto",
    "id": "temu-coupon-promo-code-49"
@@ -11776,7 +11776,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/exclusive_offer",
+   "link": "https://www.temu.com/kr",
    "source": "https://benefitshub.co.kr/temu-coupon-promo-code/",
    "origin": "auto",
    "id": "temu-coupon-promo-code-42"
@@ -13204,7 +13204,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/tripbtoz_promo_code",
+   "link": "https://tripbtoz.com/",
    "source": "https://benefitshub.co.kr/tripbtoz-promo-code/",
    "origin": "auto",
    "id": "tripbtoz-promo-code-436"
@@ -13221,7 +13221,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/tripbtoz_promo_code",
+   "link": "https://tripbtoz.com/",
    "source": "https://benefitshub.co.kr/tripbtoz-promo-code/",
    "origin": "auto",
    "id": "tripbtoz-promo-code-438"
@@ -13238,7 +13238,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/tripbtoz_promo_code",
+   "link": "https://tripbtoz.com/",
    "source": "https://benefitshub.co.kr/tripbtoz-promo-code/",
    "origin": "auto",
    "id": "tripbtoz-promo-code-437"
@@ -13289,7 +13289,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/farfetch_promo_code",
+   "link": "https://www.farfetch.com/kr/",
    "source": "https://benefitshub.co.kr/farfetch-promo-code/",
    "origin": "auto",
    "id": "farfetch-promo-code-611"
@@ -13306,7 +13306,7 @@
    "expires_at": null,
    "code": "NC15FF",
    "apply": "우측 하단에 있는 [프로모션 코드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/farfetch_promo_code",
+   "link": "https://www.farfetch.com/kr/",
    "source": "https://benefitshub.co.kr/farfetch-promo-code/",
    "origin": "auto",
    "id": "farfetch-promo-code-610"
@@ -13476,7 +13476,7 @@
    "expires_at": null,
    "code": "26VISAH1",
    "apply": "우측 하단에 있는 [프로모션 코드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/farfetch_promo_code",
+   "link": "https://www.farfetch.com/kr/",
    "source": "https://benefitshub.co.kr/farfetch-promo-code/",
    "origin": "auto",
    "id": "farfetch-promo-code-608"
@@ -13493,7 +13493,7 @@
    "expires_at": null,
    "code": "HONEYY325",
    "apply": "우측 하단에 있는 [프로모션 코드] 입력란에 할인코드를 입력합니다",
-   "link": "https://benefitshub.co.kr/farfetch_promo_code",
+   "link": "https://www.farfetch.com/kr/",
    "source": "https://benefitshub.co.kr/farfetch-promo-code/",
    "origin": "auto",
    "id": "farfetch-promo-code-609"
@@ -13782,7 +13782,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/hotels_vip",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-252"
@@ -13816,7 +13816,7 @@
    "expires_at": null,
    "code": "LP08",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/lp_hotels_promo_code",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-243"
@@ -13833,7 +13833,7 @@
    "expires_at": null,
    "code": null,
    "apply": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
-   "link": "https://benefitshub.co.kr/hotels_member_disount",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-250"
@@ -13867,7 +13867,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/hotels_extra_booking",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-242"
@@ -13918,7 +13918,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/hotels_week_discount",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-251"
@@ -13935,7 +13935,7 @@
    "expires_at": null,
    "code": null,
    "apply": "전용 링크로 접속해 쿠폰을 받은 뒤 결제",
-   "link": "https://benefitshub.co.kr/hotels_extra_booking",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-249"
@@ -13952,7 +13952,7 @@
    "expires_at": null,
    "code": "10KBCARD",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_kb",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-256"
@@ -13969,7 +13969,7 @@
    "expires_at": null,
    "code": "NH10",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_nh",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-257"
@@ -13986,7 +13986,7 @@
    "expires_at": null,
    "code": "HANACARD",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_hana",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-260"
@@ -14003,7 +14003,7 @@
    "expires_at": null,
    "code": "10HYUNDAI",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_hyundai",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-261"
@@ -14020,7 +14020,7 @@
    "expires_at": null,
    "code": "SSCARD7",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_samsung",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-259"
@@ -14037,7 +14037,7 @@
    "expires_at": null,
    "code": "VISA8",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_visa",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-253"
@@ -14054,7 +14054,7 @@
    "expires_at": null,
    "code": "MCKR8",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_master",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-254"
@@ -14071,7 +14071,7 @@
    "expires_at": null,
    "code": "LOCA8",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_lotte",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-258"
@@ -14088,7 +14088,7 @@
    "expires_at": null,
    "code": "AMEX8",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/hotel_amex",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-255"
@@ -14122,7 +14122,7 @@
    "expires_at": null,
    "code": "LP005",
    "apply": "결제 페이지에서 쿠폰 코드 입력란에 붙여넣기를 선택합니다 → 예약할 호텔을 선택합니다",
-   "link": "https://benefitshub.co.kr/lp_hotels_promo_code",
+   "link": "https://kr.hotels.com/",
    "source": "https://benefitshub.co.kr/hotels-promo-code/",
    "origin": "auto",
    "id": "hotels-promo-code-244"

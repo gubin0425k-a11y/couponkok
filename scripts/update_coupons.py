@@ -23,6 +23,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
@@ -455,6 +456,12 @@ def normalize(text: str) -> str:
     return text
 
 
+def is_source_link(url: str) -> bool:
+    """수집 사이트(benefitshub)가 자기 페이지로 돌리는 링크인지."""
+    host = urllib.parse.urlparse(url or "").netloc.lower()
+    return host == "benefitshub.co.kr" or host.endswith(".benefitshub.co.kr")
+
+
 def platform_coupons(slug: str, name: str, category: str, page: str, link_cache: dict) -> tuple[list[dict], dict]:
     body = article_body(page)
     sections = split_sections(body)
@@ -500,7 +507,8 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
                 apply_text = DEFAULT_APPLY[coupon_type]
             generic = (f"{BASE}/{slug}/", f"{BASE}/{slug}", f"{BASE}/{slug}#")
             link = row["link"] or ""
-            if not link or link in generic:
+            if not link or link in generic or is_source_link(link):
+                # 수집 사이트 자신을 가리키는 링크는 플랫폼 공식 주소로 바꾼다.
                 link = OFFICIAL_URLS.get(slug) or f"{BASE}/{slug}/"
             coupons.append({
                 "platform_id": slug,
