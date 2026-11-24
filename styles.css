@@ -163,9 +163,11 @@ img, svg { max-width: 100%; }
 .zip-title .line2 { margin-top: 4px; }
 .zip-title .zipword {
   display: inline-block;
+  font-size: .8em;
   background: var(--zip-accent); color: #fff;
-  padding: 0 .26em .06em; border-radius: .16em;
-  letter-spacing: -0.04em;
+  padding: 0 .3em .1em; border-radius: .18em;
+  letter-spacing: -0.03em;
+  vertical-align: .06em;
 }
 .zip-brands {
   margin: clamp(10px, 2.2vw, 14px) 0 0;
@@ -175,6 +177,9 @@ img, svg { max-width: 100%; }
   line-height: 1.55; color: var(--muted);
   word-break: keep-all;
 }
+.zip-brands > span { white-space: nowrap; }
+.zip-brands > span::after { content: "·"; color: #c3c7d1; margin: 0 .3em 0 .28em; }
+.zip-brands > span:last-child::after { content: ""; margin: 0; }
 .zip-cta {
   display: inline-flex; align-items: center; gap: 6px;
   margin-top: clamp(8px, 1.8vw, 11px);
@@ -419,8 +424,8 @@ img, svg { max-width: 100%; }
 }
 
 @media (max-width: 380px) {
-  .zip-card { grid-template-columns: minmax(0, 1fr) 96px; gap: 10px; }
-  .zip-card.flip { grid-template-columns: 96px minmax(0, 1fr); }
+  .zip-card { grid-template-columns: minmax(0, 1fr) clamp(96px, 27vw, 112px); gap: 10px; }
+  .zip-card.flip { grid-template-columns: clamp(96px, 27vw, 112px) minmax(0, 1fr); }
   .zip-title .line { font-size: 20px; }
   .ghost-btn { padding-inline: 11px; font-size: 12px; }
 }

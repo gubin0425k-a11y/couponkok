@@ -155,7 +155,8 @@
           el("span", { class: "zipword", text: "모음ZIP" }),
         ]),
       ]),
-      el("p", { class: "zip-brands", text: brands.join(" · ") }),
+      el("p", { class: "zip-brands", "aria-label": brands.join(", ") },
+        brands.map((name) => el("span", { text: name }))),
       el("span", { class: "zip-cta", html: `쿠폰 ${nf(zip.coupons)}개 보기 ${ARROW}` }),
     ]);
 
