@@ -10,15 +10,60 @@
     link: "전용 링크형",
   };
   const TYPE_ORDER = ["signup", "card", "member", "code", "link"];
-  const CATEGORY_LABEL = { shopping: "쇼핑", travel: "여행", fashion: "패션", card: "카드혜택" };
-  const CATEGORY_ORDER = ["all", "shopping", "travel", "fashion", "card"];
+
+  /* 4대 모음ZIP의 표시 설정. 개수·대표 브랜드는 실제 데이터에서 채운다. */
+  const ZIP_META = {
+    travel: {
+      keyword: "여행",
+      lead: "항공·숙소·투어·교통",
+      tone: "#d9e8fa",
+      accent: "#2f5bea",
+      art: "assets/zip-travel.webp",
+      artFallback: "assets/zip-travel.png",
+      artAlt: "지도와 항공권을 담은 여행 가방 일러스트",
+      preferred: ["트립닷컴", "KKday", "클룩", "NOL(야놀자)", "아고다"],
+    },
+    deal: {
+      keyword: "쇼핑·직구",
+      lead: "종합몰·해외 직구",
+      tone: "#fbe3d2",
+      accent: "#cc5522",
+      art: "assets/zip-deal.webp",
+      artFallback: "assets/zip-deal.png",
+      artAlt: "택이 달린 택배 상자와 쇼핑백 일러스트",
+      preferred: ["알리익스프레스", "테무", "조마샵", "레고", "케이스티파이"],
+    },
+    living: {
+      keyword: "생활",
+      lead: "식품·배달·리빙·뷰티",
+      tone: "#dcebd9",
+      accent: "#3f8a4c",
+      art: "assets/zip-living.webp",
+      artFallback: "assets/zip-living.png",
+      artAlt: "장바구니에 담긴 우유·채소와 쿠폰 일러스트",
+      preferred: ["마켓컬리", "오늘의집", "쿠팡이츠", "펫프렌즈", "클럽클리오"],
+    },
+    fashion: {
+      keyword: "패션",
+      lead: "의류·잡화·명품",
+      tone: "#e6dff5",
+      accent: "#7a4fd0",
+      art: "assets/zip-fashion.webp",
+      artFallback: "assets/zip-fashion.png",
+      artAlt: "옷걸이에 걸린 티셔츠와 스니커즈 일러스트",
+      preferred: ["무신사", "지그재그", "H&M", "24S", "크림"],
+    },
+  };
+  const ZIP_ORDER = ["travel", "deal", "living", "fashion"];
 
   const CONSENT_KEY = "coupon-kok:notice-agreed";
-  const state = { category: "all", platform: "all", type: "all", q: "" };
+  const state = { view: "home", zip: null, type: "all", platform: "all", q: "" };
+
   let DATA = null;
   let platformById = new Map();
   let pendingLink = null;
   let lastFocused = null;
+  let consentMemory = false;
 
   const $ = (id) => document.getElementById(id);
   const el = (tag, props = {}, children = []) => {
@@ -34,6 +79,7 @@
     for (const child of [].concat(children)) if (child) node.appendChild(child);
     return node;
   };
+  const nf = (n) => Number(n || 0).toLocaleString("ko-KR");
 
   const formatDate = (iso) => {
     if (!iso) return "-";
@@ -50,78 +96,111 @@
     return q.split(/\s+/).every((word) => hay.includes(word));
   };
 
-  const inCategory = (c) => (state.category === "all" ? true : state.category === "card" ? c.type === "card" : c.category === state.category);
+  const zipOf = (c) => c.zip || (platformById.get(c.platform_id) || {}).zip || "deal";
 
-  const baseSet = () => DATA.coupons.filter((c) => inCategory(c) && matchesQuery(c, state.q));
-  const platformSet = () => baseSet().filter((c) => (state.type === "all" ? true : c.type === state.type));
-  const finalSet = () =>
-    platformSet().filter((c) => (state.platform === "all" ? true : c.platform_id === state.platform));
+  /* ---------- 모음ZIP 카드 ---------- */
+  const ARROW =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="M12 5.5 18.5 12 12 18.5"/></svg>';
 
-  /* ---------- 필터 UI ---------- */
-  function renderCategoryTabs() {
-    const counts = { all: 0, shopping: 0, travel: 0, fashion: 0, card: 0 };
-    for (const c of DATA.coupons) {
-      counts.all += 1;
-      counts[c.category] = (counts[c.category] || 0) + 1;
-      if (c.type === "card") counts.card += 1;
-    }
-    const nav = $("category-tabs");
-    nav.replaceChildren(
-      ...CATEGORY_ORDER.filter((key) => key === "all" || counts[key] > 0).map((key) =>
-        el("button", {
-          class: "tab",
-          role: "tab",
-          "aria-selected": String(state.category === key),
-          text: `${CATEGORY_LABEL[key] || "전체"} ${counts[key].toLocaleString("ko-KR")}`,
-          onclick: () => {
-            state.category = key;
-            state.platform = "all";
-            state.type = "all";
-            renderAll();
-          },
-        })
-      )
-    );
+  function zipSummary() {
+    const list = Array.isArray(DATA.zips) ? DATA.zips : [];
+    if (list.length) return list;
+    return ZIP_ORDER.map((key) => {
+      const ps = DATA.platforms.filter((p) => zipOf(p) === key);
+      const ids = new Set(ps.map((p) => p.id));
+      return {
+        key,
+        label: `${ZIP_META[key].keyword} 쿠폰`,
+        platforms: ps.length,
+        coupons: DATA.coupons.filter((c) => ids.has(c.platform_id)).length,
+      };
+    });
   }
 
-  function renderPlatformChips() {
-    const pool = baseSet().filter((c) => (state.type === "all" ? true : c.type === state.type));
-    const counts = new Map();
-    for (const c of pool) counts.set(c.platform_id, (counts.get(c.platform_id) || 0) + 1);
-    const order = DATA.platforms.map((p) => p.id).filter((id) => counts.has(id));
-    const box = $("platform-chips");
-    const items = [
-      el("button", {
-        class: "chip",
-        "aria-pressed": String(state.platform === "all"),
-        text: `전체 플랫폼 ${pool.length.toLocaleString("ko-KR")}`,
-        onclick: () => { state.platform = "all"; renderAll(); },
-      }),
-    ];
-    for (const id of order) {
-      const meta = platformById.get(id);
-      items.push(
-        el("button", {
-          class: "chip",
-          "aria-pressed": String(state.platform === id),
-          onclick: () => { state.platform = id; renderAll(); },
-          children: [document.createTextNode(meta ? meta.name : id), el("em", { text: String(counts.get(id)) })],
-        })
-      );
+  function pickBrands(key) {
+    const inZip = DATA.platforms
+      .filter((p) => zipOf(p) === key)
+      .sort((a, b) => (b.count || 0) - (a.count || 0));
+    const names = inZip.map((p) => p.name);
+    const picked = [];
+    for (const name of (ZIP_META[key] || {}).preferred || []) {
+      if (names.includes(name) && !picked.includes(name)) picked.push(name);
+      if (picked.length >= 5) break;
     }
-    box.replaceChildren(...items);
+    for (const name of names) {
+      if (picked.length >= 5) break;
+      if (!picked.includes(name)) picked.push(name);
+    }
+    return picked;
   }
+
+  function buildZipCard(zip, index) {
+    const key = zip.key;
+    const meta = ZIP_META[key] || { keyword: zip.label || key, lead: "", tone: "#eef2ff", accent: "#2f5bea" };
+    const brands = pickBrands(key);
+    const card = el("a", {
+      class: `zip-card${index % 2 ? " flip" : ""}`,
+      href: `#/zip/${key}`,
+      "aria-label": `${zip.label || meta.keyword} — ${nf(zip.coupons)}개 모아보기`,
+    });
+    card.style.setProperty("--tone", meta.tone);
+    card.style.setProperty("--zip-accent", meta.accent);
+
+    const text = el("div", { class: "zip-text" }, [
+      el("span", { class: "zip-kicker", text: `${String(index + 1).padStart(2, "0")} · ${meta.lead}` }),
+      el("h3", { class: "zip-title" }, [
+        el("span", { class: "line line1", text: meta.keyword }),
+        el("span", { class: "line line2" }, [
+          document.createTextNode("쿠폰 "),
+          el("span", { class: "zipword", text: "모음ZIP" }),
+        ]),
+      ]),
+      el("p", { class: "zip-brands", text: brands.join(" · ") }),
+      el("span", { class: "zip-cta", html: `쿠폰 ${nf(zip.coupons)}개 보기 ${ARROW}` }),
+    ]);
+
+    const art = el("div", { class: "zip-art" }, [
+      el("picture", {}, [
+        el("source", { type: "image/webp", srcset: meta.art }),
+        el("img", {
+          src: meta.artFallback,
+          alt: meta.artAlt || "",
+          width: "720",
+          height: "720",
+          loading: index === 0 ? "eager" : "lazy",
+          decoding: "async",
+        }),
+      ]),
+    ]);
+
+    card.append(text, art);
+    return card;
+  }
+
+  function renderHome() {
+    const zips = zipSummary();
+    $("zip-list").replaceChildren(...zips.map(buildZipCard));
+    $("stat-platforms").textContent = nf(DATA.platforms.length);
+    $("stat-coupons").textContent = nf(DATA.coupons.length);
+    const allLink = document.querySelector(".home-foot a");
+    if (allLink) allLink.textContent = `전체 쿠폰 ${nf(DATA.coupons.length)}개 한 번에 보기`;
+  }
+
+  /* ---------- 목록 필터 ---------- */
+  const inView = (c) => (state.zip ? zipOf(c) === state.zip : true);
+  const baseSet = () => DATA.coupons.filter((c) => inView(c) && matchesQuery(c, state.q));
+  const typedSet = () => baseSet().filter((c) => (state.type === "all" ? true : c.type === state.type));
+  const finalSet = () => typedSet().filter((c) => (state.platform === "all" ? true : c.platform_id === state.platform));
 
   function renderTypeChips() {
     const pool = baseSet();
     const counts = new Map();
     for (const c of pool) counts.set(c.type, (counts.get(c.type) || 0) + 1);
-    const box = $("type-chips");
     const items = [
       el("button", {
-        class: "chip",
+        class: "chip", type: "button",
         "aria-pressed": String(state.type === "all"),
-        text: `유형 전체 ${pool.length.toLocaleString("ko-KR")}`,
+        text: `유형 전체 ${nf(pool.length)}`,
         onclick: () => { state.type = "all"; renderAll(); },
       }),
     ];
@@ -129,25 +208,167 @@
       if (!counts.get(type)) continue;
       items.push(
         el("button", {
-          class: "chip",
+          class: "chip", type: "button",
           "aria-pressed": String(state.type === type),
           onclick: () => { state.type = state.type === type ? "all" : type; renderAll(); },
-          children: [document.createTextNode(TYPE_LABEL[type]), el("em", { text: String(counts.get(type)) })],
+          children: [document.createTextNode(TYPE_LABEL[type]), el("em", { text: nf(counts.get(type)) })],
         })
       );
     }
-    box.replaceChildren(...items);
+    $("type-chips").replaceChildren(...items);
   }
 
-  /* ---------- 카드 ---------- */
-  const ICON_COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 5.5V5a2 2 0 0 0-2-2H5.5A2.5 2.5 0 0 0 3 5.5V13a2 2 0 0 0 2 2h.5"/></svg>';
-  const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>';
+  function renderPlatformChips() {
+    const pool = typedSet();
+    const counts = new Map();
+    for (const c of pool) counts.set(c.platform_id, (counts.get(c.platform_id) || 0) + 1);
+    const order = DATA.platforms.map((p) => p.id).filter((id) => counts.has(id));
+    const items = [
+      el("button", {
+        class: "chip", type: "button",
+        "aria-pressed": String(state.platform === "all"),
+        text: `전체 플랫폼 ${nf(pool.length)}`,
+        onclick: () => { state.platform = "all"; renderAll(); },
+      }),
+    ];
+    for (const id of order) {
+      const meta = platformById.get(id);
+      items.push(
+        el("button", {
+          class: "chip", type: "button",
+          "aria-pressed": String(state.platform === id),
+          onclick: () => { state.platform = id; renderAll(); },
+          children: [
+            document.createTextNode(meta ? meta.name : id),
+            el("em", { text: nf(counts.get(id)) }),
+          ],
+        })
+      );
+    }
+    $("platform-chips").replaceChildren(...items);
+  }
+
+  /* ---------- 쿠폰 카드 ---------- */
+  const ICON_COPY = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M15 5.5V5a2 2 0 0 0-2-2H5.5A2.5 2.5 0 0 0 3 5.5V13a2 2 0 0 0 2 2h.5"/></svg>';
+  const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>';
+
+  function buildCard(c) {
+    const top = el("div", { class: "card-top" }, [
+      el("span", { class: `badge ${c.type}`, text: TYPE_LABEL[c.type] }),
+      c.section ? el("span", { class: "section-tag", text: c.section, title: c.section }) : null,
+    ]);
+
+    const rows = el("dl", { class: "rows" }, [
+      el("div", { class: "row" }, [
+        el("dt", { text: "적용 방법" }),
+        el("dd", { class: "clamp2", text: c.apply, title: c.apply }),
+      ]),
+      el("div", { class: "row expiry" }, [
+        el("dt", { text: "사용 기한" }),
+        el("dd", {
+          class: c.expiry && c.expiry.includes("표기 없음") ? "none" : "",
+          text: c.expiry || "사용 기한 표기 없음",
+        }),
+      ]),
+    ]);
+
+    const foot = el("div", { class: "card-foot" });
+    if (c.code) {
+      const copyBtn = el("button", {
+        class: "copy", type: "button", "aria-label": `${c.code} 코드 복사`, html: ICON_COPY,
+        onclick: () => copyText(c.code, copyBtn),
+      });
+      foot.appendChild(el("span", { class: "code-box" }, [el("code", { text: c.code }), copyBtn]));
+    }
+
+    const kids = [top, el("h3", { text: c.benefit })];
+    if (c.condition) kids.push(el("p", { class: "cond", text: c.condition }));
+    kids.push(rows, foot);
+
+    const card = el("article", { class: `card${c.code ? "" : " no-code"}` }, kids);
+    const go = el("a", {
+      class: "go",
+      href: c.link || c.source,
+      target: "_blank",
+      rel: "noopener noreferrer nofollow",
+      html: `전용 링크 바로가기 ${ICON_GO}`,
+      "aria-label": `${c.platform} 전용 링크 열기 (새 탭)`,
+    });
+    foot.appendChild(go);
+    return card;
+  }
+
+  function renderList() {
+    const list = finalSet();
+    const groupsByPlatform = new Map();
+    for (const c of list) {
+      if (!groupsByPlatform.has(c.platform_id)) groupsByPlatform.set(c.platform_id, []);
+      groupsByPlatform.get(c.platform_id).push(c);
+    }
+
+    $("count").innerHTML = `<b>${nf(list.length)}</b>개 쿠폰`;
+    $("empty").hidden = list.length > 0;
+
+    const groups = [];
+    for (const [id, coupons] of groupsByPlatform) {
+      const meta = platformById.get(id);
+      const head = el("div", { class: "platform-head" }, [
+        el("h2", { text: meta ? meta.name : coupons[0].platform }),
+        el("span", { class: "cat", text: zipLabel(meta ? zipOf(meta) : "deal") }),
+        el("span", { class: "num", text: `${coupons.length}개` }),
+        state.platform === "all"
+          ? el("button", {
+              class: "filter-link", type: "button", text: "이 플랫폼만 보기",
+              onclick: () => { state.platform = id; renderAll(); },
+            })
+          : null,
+      ]);
+      groups.push(el("section", { class: "platform-group" }, [
+        head,
+        el("div", { class: "grid" }, coupons.map(buildCard)),
+      ]));
+    }
+    $("content").replaceChildren(...groups);
+  }
+
+  function zipLabel(key) {
+    const found = zipSummary().find((z) => z.key === key);
+    return found ? found.label : "";
+  }
+
+  function renderHeader() {
+    const zips = zipSummary();
+    const zip = state.zip ? zips.find((z) => z.key === state.zip) : null;
+    let title = "전체 쿠폰";
+    if (zip && state.q) title = `${zip.label} · ‘${state.q}’`;
+    else if (zip) title = zip.label;
+    else if (state.q) title = `‘${state.q}’ 검색 결과`;
+
+    const pool = finalSet();
+    $("view-title").textContent = title;
+    $("view-sub").textContent = `${nf(groupsOf(pool))}개 플랫폼 · ${nf(pool.length)}개 쿠폰`;
+  }
+
+  const groupsOf = (list) => new Set(list.map((c) => c.platform_id)).size;
+
+  function renderAll() {
+    const isHome = state.view === "home" && !state.q && !state.zip;
+    $("home").hidden = !isHome;
+    $("results").hidden = isHome;
+    if (isHome) {
+      renderHome();
+      return;
+    }
+    renderHeader();
+    renderTypeChips();
+    renderPlatformChips();
+    renderList();
+  }
 
   /* ---------- 첫 방문 고지 ---------- */
   const hasConsent = () => {
     try { return localStorage.getItem(CONSENT_KEY) === "1"; } catch (_) { return consentMemory; }
   };
-  let consentMemory = false;
   const saveConsent = () => {
     consentMemory = true;
     try { localStorage.setItem(CONSENT_KEY, "1"); } catch (_) { /* 저장이 막힌 브라우저 */ }
@@ -162,7 +383,7 @@
       try { win.opener = null; } catch (_) { /* 건널 수 없는 창 */ }
       return;
     }
-    // 팝업이 막히면 링크 클릭으로 한 번 더 시도해 사용자가 갈힌 채 남지 않게 한다.
+    // 팝업이 막히면 링크 클릭으로 한 번 더 시도해 사용자가 갇힌 채 남지 않게 한다.
     const a = document.createElement("a");
     a.href = href;
     a.target = "_blank";
@@ -247,106 +468,6 @@
     }
   }
 
-  function buildCard(c, showPlatform) {
-    const top = el("div", { class: "card-top" }, [
-      el("span", { class: `badge ${c.type}`, text: TYPE_LABEL[c.type] }),
-      showPlatform ? el("span", { class: "section-tag", text: c.platform }) : null,
-      c.section ? el("span", { class: "section-tag", text: c.section }) : null,
-    ]);
-
-    const rows = el("dl", { class: "rows" }, [
-      el("div", { class: "row" }, [
-        el("dt", { text: "적용 방법" }),
-        el("dd", { class: "clamp2", text: c.apply, title: c.apply }),
-      ]),
-      el("div", { class: "row expiry" }, [
-        el("dt", { text: "사용 기한" }),
-        el("dd", { class: c.expiry && c.expiry.includes("표기 없음") ? "none" : "", text: c.expiry || "사용 기한 표기 없음" }),
-      ]),
-    ]);
-
-    const foot = el("div", { class: "card-foot" });
-    if (c.code) {
-      const copyBtn = el("button", {
-        class: "copy",
-        type: "button",
-        "aria-label": `${c.code} 코드 복사`,
-        html: ICON_COPY,
-        onclick: () => copyText(c.code, copyBtn),
-      });
-      foot.appendChild(
-        el("span", { class: "code-box" }, [el("code", { text: c.code }), copyBtn])
-      );
-    }
-
-    const kids = [top, el("h3", { text: c.benefit })];
-    if (c.condition) kids.push(el("p", { class: "cond", text: c.condition }));
-    kids.push(rows, foot);
-
-    const card = el("article", { class: `card${c.code ? "" : " no-code"}` }, kids);
-
-    // 주 동작: 전용 링크(새 탭). 앱이 설치된 기기에서는 https 링크가 앱으로 이어질 수 있다.
-    const go = el("a", {
-      class: "go",
-      href: c.link || c.source,
-      target: "_blank",
-      rel: "noopener noreferrer nofollow",
-      html: `전용 링크 바로가기 ${ICON_GO}`,
-      "aria-label": `${c.platform} 전용 링크 열기 (새 탭)`,
-    });
-    foot.appendChild(go);
-    return card;
-  }
-
-  /* ---------- 목록 ---------- */
-  function renderList() {
-    const list = finalSet();
-    $("count").innerHTML = `<b>${list.length.toLocaleString("ko-KR")}</b>개 쿠폰`;
-    $("empty").hidden = list.length > 0;
-    const content = $("content");
-
-    if (!list.length) { content.replaceChildren(); return; }
-
-    if (state.platform !== "all") {
-      const meta = platformById.get(state.platform);
-      const group = el("section", { class: "platform-group" }, [
-        el("div", { class: "platform-head" }, [
-          el("h2", { text: meta ? meta.name : state.platform }),
-          el("span", { class: "cat", text: CATEGORY_LABEL[meta ? meta.category : ""] || "" }),
-          el("span", { class: "num", text: `${list.length}개` }),
-        ]),
-      ]);
-      group.appendChild(el("div", { class: "grid" }, list.map((c) => buildCard(c, false))));
-      content.replaceChildren(group);
-      return;
-    }
-
-    const byPlatform = new Map();
-    for (const c of list) {
-      if (!byPlatform.has(c.platform_id)) byPlatform.set(c.platform_id, []);
-      byPlatform.get(c.platform_id).push(c);
-    }
-    const groups = [];
-    for (const [id, coupons] of byPlatform) {
-      const meta = platformById.get(id);
-      const head = el("div", { class: "platform-head" }, [
-        el("h2", { text: meta ? meta.name : coupons[0].platform }),
-        el("span", { class: "cat", text: CATEGORY_LABEL[meta ? meta.category : ""] || "" }),
-        el("span", { class: "num", text: `${coupons.length}개` }),
-        el("button", {
-          class: "filter-link",
-          type: "button",
-          text: "이 플랫폼만 보기",
-          onclick: () => { state.platform = id; renderAll(); },
-        }),
-      ]);
-      groups.push(
-        el("section", { class: "platform-group" }, [head, el("div", { class: "grid" }, coupons.map((c) => buildCard(c, false)))])
-      );
-    }
-    content.replaceChildren(...groups);
-  }
-
   let toastTimer;
   function toast(message) {
     const node = $("toast");
@@ -356,33 +477,86 @@
     toastTimer = setTimeout(() => node.classList.remove("show"), 1600);
   }
 
-  function renderAll() {
-    renderCategoryTabs();
-    renderPlatformChips();
-    renderTypeChips();
-    renderList();
+  /* ---------- 화면 전환 ---------- */
+  function routeFromHash() {
+    const raw = (location.hash || "").replace(/^#/, "");
+    const zipMatch = raw.match(/^\/zip\/([a-z]+)$/);
+    if (zipMatch && ZIP_META[zipMatch[1]]) return { view: "list", zip: zipMatch[1] };
+    if (raw === "/all") return { view: "list", zip: null };
+    return { view: "home", zip: null };
+  }
+
+  function applyRoute() {
+    const route = routeFromHash();
+    state.view = route.view;
+    state.zip = route.zip;
+    state.type = "all";
+    state.platform = "all";
+    if (route.view === "home") {
+      state.q = "";
+      $("search").value = "";
+    }
+    renderAll();
+    if (route.view === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goHome() {
+    if (location.hash && location.hash !== "#/") location.hash = "#/";
+    else applyRoute();
   }
 
   /* ---------- 시작 ---------- */
   function boot(data) {
     DATA = data;
-    platformById = new Map(data.platforms.map((p) => [p.id, p]));
+    DATA.coupons = data.coupons.map((c) => ({ ...c }));
+    DATA.platforms = data.platforms.map((p) => ({ ...p }));
+    platformById = new Map(DATA.platforms.map((p) => [p.id, { ...p, zip: p.zip || "deal" }]));
+
     const stamp = formatDate(data.generated_at);
     $("updated").textContent = `업데이트 ${stamp}`;
     $("updated-foot").textContent = stamp;
+
     initNotice();
-    renderAll();
+    applyRoute();
 
     let timer;
-    $("search").addEventListener("input", (event) => {
+    const onSearch = (event) => {
       clearTimeout(timer);
       const value = event.target.value.trim().toLowerCase();
       timer = setTimeout(() => {
         state.q = value;
+        state.type = "all";
         state.platform = "all";
-        renderAll();
+        if (value) {
+          state.view = "list";
+          renderAll();
+        } else if (state.zip) {
+          renderAll();
+        } else {
+          goHome();
+        }
       }, 140);
+    };
+    $("search").addEventListener("input", onSearch);
+    $("search").addEventListener("search", onSearch);
+
+    $("back-btn").addEventListener("click", goHome);
+    $("all-btn").addEventListener("click", (event) => {
+      event.preventDefault();
+      $("search").value = "";
+      state.q = "";
+      state.type = "all";
+      state.platform = "all";
+      if (location.hash === "#/all") {
+        state.view = "list";
+        state.zip = null;
+        renderAll();
+      } else {
+        location.hash = "#/all";
+      }
     });
+
+    window.addEventListener("hashchange", applyRoute);
   }
 
   fetch("./data/coupons.json", { cache: "no-cache" })
@@ -394,6 +568,8 @@
     .catch((err) => {
       $("updated").textContent = "데이터를 불러오지 못했습니다";
       $("status-dot").style.background = "#e0554d";
+      $("home").hidden = true;
+      $("results").hidden = false;
       $("content").replaceChildren(
         el("p", { class: "empty", text: `쿠폰 데이터를 불러오지 못했습니다 (${err.message}). 잠시 후 새로고침해 주세요.` })
       );

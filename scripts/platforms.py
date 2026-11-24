@@ -166,3 +166,110 @@ DEFAULT_APPLY = {
     "signup": "신규 가입 후 쿠폰함에서 확인하고 결제 시 적용",
     "member": "해당 멤버십·조건을 충족한 뒤 쿠폰함에서 확인하고 결제 시 적용",
 }
+
+# ---------------------------------------------------------------------------
+# 4대 모음ZIP: 첫 화면에서 보여 주는 묶음. 73개 플랫폼이 정확히 한 곳에 들어간다.
+#   travel  - 항공·숙소·투어·교통·이심
+#   deal    - 종합 쇼핑·해외 직구
+#   living  - 식품·배달·리빙·뷰티
+#   fashion - 의류·잡화·명품
+# ---------------------------------------------------------------------------
+
+ZIP_LABELS = {
+    "travel": "여행 쿠폰",
+    "deal": "쇼핑·직구 쿠폰",
+    "living": "생활 쿠폰",
+    "fashion": "패션 쿠폰",
+}
+
+ZIP_ORDER = ("travel", "deal", "living", "fashion")
+
+ZIP_OF = {
+    # 여행
+    "trip-promo-code": "travel",
+    "kkday-promo-code": "travel",
+    "klook-promo-code": "travel",
+    "waug-coupon": "travel",
+    "yanolja-promo-code": "travel",
+    "myrealtrip-coupon": "travel",
+    "agoda-promo-code": "travel",
+    "triple-promo-code": "travel",
+    "hotels-promo-code": "travel",
+    "rakuten-travel-promo-code": "travel",
+    "jejupass-promo-code": "travel",
+    "ihg-promotion": "travel",
+    "interparktour-coupon": "travel",
+    "traveloka-promo-code": "travel",
+    "tripbtoz-promo-code": "travel",
+    "booking-promo-code": "travel",
+    "hanatour-coupon": "travel",
+    "ybtour-coupon": "travel",
+    "ttang-coupon": "travel",
+    "saily-promo-code": "travel",
+    "socar-coupon": "travel",
+    "airalo-esim-code": "travel",
+    "usimsa-coupon": "travel",
+    "expedia-promo-code": "travel",
+    "getyourguide-promo-code": "travel",
+    "minda-coupon": "travel",
+    # 쇼핑·직구
+    "coup-code": "deal",
+    "a-promo-code": "deal",
+    "temu-coupon-promo-code": "deal",
+    "amazon-promo-code": "deal",
+    "jomashop-promo-code": "deal",
+    "casetify-promo-code": "deal",
+    "lego-promo-code": "deal",
+    "lenovo-promo-code": "deal",
+    "donquijote-coupon": "deal",
+    # 생활
+    "coupangeats-coupon": "living",
+    "kurly-promo-code": "living",
+    "pulmuone-coupon": "living",
+    "cjmarket-coupon": "living",
+    "metree-promo-code": "living",
+    "pet-friends-code": "living",
+    "ohou-promo-code": "living",
+    "iherb-promo-code": "living",
+    "myprotein-promo-code": "living",
+    "club-clio-coupon": "living",
+    "jomalone-coupon": "living",
+    # 패션
+    "musinsa-promo-code": "fashion",
+    "ably-coupon": "fashion",
+    "kream-promo-code": "fashion",
+    "zigzag-coupon": "fashion",
+    "wconcept-coupon": "fashion",
+    "24s-promo-code": "fashion",
+    "arket-promo-code": "fashion",
+    "cettire-promo-code": "fashion",
+    "cider-promo-code": "fashion",
+    "shein-promo-code": "fashion",
+    "cos-promo-code": "fashion",
+    "crocs-coupon-code": "fashion",
+    "diesel-promo-code": "fashion",
+    "endclothing-promo-code": "fashion",
+    "farfetch-promo-code": "fashion",
+    "fwrd-promo-code": "fashion",
+    "giglio-promo-code": "fashion",
+    "hbx-promo-code": "fashion",
+    "hm-promo-code": "fashion",
+    "lululemon-promo-code": "fashion",
+    "mrporter-promo-code": "fashion",
+    "mytheresa-promo-code": "fashion",
+    "netaporter-promo-code": "fashion",
+    "shopbop-promo-code": "fashion",
+    "ssense-promo-code": "fashion",
+    "swarovski-promo-code": "fashion",
+    "theory-promo-code": "fashion",
+    "theoutnet-promo-code": "fashion",
+    "yoox-promo-code": "fashion",
+    "aloyoga-promo-code": "fashion",
+}
+
+# 새로 발견된 플랫폼은 카테고리 기본값으로 배정한다.
+DEFAULT_ZIP_BY_CATEGORY = {"travel": "travel", "fashion": "fashion", "shopping": "deal"}
+
+
+def zip_for(slug: str, category: str = "shopping") -> str:
+    return ZIP_OF.get(slug) or DEFAULT_ZIP_BY_CATEGORY.get(category, "deal")

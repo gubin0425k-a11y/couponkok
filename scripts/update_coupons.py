@@ -29,6 +29,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from currency import has_foreign, normalize_money  # noqa: E402
 from official_urls import OFFICIAL_URLS  # noqa: E402
 from platforms import (  # noqa: E402
     BASE,
@@ -42,6 +43,9 @@ from platforms import (  # noqa: E402
     TABLE_BLOCKLIST,
     TYPE_KEYWORDS,
     TYPE_LABELS,
+    ZIP_LABELS,
+    ZIP_ORDER,
+    zip_for,
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -282,6 +286,8 @@ def tidy_benefit(text: str) -> str:
     benefit = one_line(text).replace("합니다", "")
     benefit = re.sub(r"\s*·\s*", " · ", benefit)
     benefit = re.sub(r"\s+", " ", benefit).strip()
+    # 외화 금액은 한국 '원' 표기로 통일한다. (예: $400 -> 약 560,000원)
+    benefit = normalize_money(benefit)
     if re.fullmatch(r"\d+(\.\d+)?%", benefit):
         benefit = f"{benefit} 할인"
     return benefit
@@ -453,7 +459,7 @@ def parse_usage(section_title: str, sections: list[tuple[str, str, int]]) -> str
 def normalize(text: str) -> str:
     text = one_line(text)
     text = re.sub(r"\s*·\s*", " · ", text)
-    return text
+    return normalize_money(text)
 
 
 def is_source_link(url: str) -> bool:
@@ -497,14 +503,15 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
                 # 기한 칸에 조건 문구가 들어간 표는 조건으로 옮긴다.
                 condition = (condition + " " + raw_expiry).strip()
                 raw_expiry = ""
-            expiry_text = format_expiry(row["expires_at"], raw_expiry) or NO_EXPIRY
-            tag = row["label"] or clean_section(section_title, name)
+            expiry_text = normalize_money(format_expiry(row["expires_at"], raw_expiry) or NO_EXPIRY)
+            tag = normalize_money(row["label"] or clean_section(section_title, name))
             if code and usage:
                 apply_text = usage
             elif not code and usage and re.search(r"받기|다운로드|쿠폰선택|자동 ?적용|전용 링크", usage):
                 apply_text = usage
             else:
                 apply_text = DEFAULT_APPLY[coupon_type]
+            apply_text = normalize_money(apply_text)
             generic = (f"{BASE}/{slug}/", f"{BASE}/{slug}", f"{BASE}/{slug}#")
             link = row["link"] or ""
             if not link or link in generic or is_source_link(link):
@@ -514,6 +521,7 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
                 "platform_id": slug,
                 "platform": name,
                 "category": category,
+                "zip": zip_for(slug, category),
                 "type": coupon_type,
                 "section": tag,
                 "benefit": benefit,
@@ -531,6 +539,7 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
         "id": slug,
         "name": name,
         "category": category,
+        "zip": zip_for(slug, category),
         "page_title": page_title,
         "source": f"{BASE}/{slug}/",
         "updated": updated,
@@ -582,6 +591,9 @@ def validate(coupons: list[dict]) -> list[str]:
         link = str(c.get("link") or "")
         if link and not link.startswith("http"):
             problems.append(f"{idx}:{c.get('platform')}: 링크 형식 오류")
+        for field in ("benefit", "condition", "apply", "section", "expiry"):
+            if has_foreign(c.get(field) or ""):
+                problems.append(f"{idx}:{c.get('platform')}:{field} 에 외화 표기 '{c.get(field)}'")
         benefit = c.get("benefit") or ""
         if re.search(r"[<>]", benefit):
             problems.append(f"{idx}:{c.get('platform')}: 혜택에 태그 문자")
@@ -611,14 +623,15 @@ def load_curated(platform_names: dict[str, str]) -> list[dict]:
             "platform_id": platform_id,
             "platform": platform_names.get(platform_id, item.get("platform", platform_id)),
             "category": item.get("category", "shopping"),
+            "zip": zip_for(platform_id, item.get("category", "shopping")),
             "type": item.get("type", "code"),
-            "section": item.get("section", ""),
-            "benefit": item["benefit"],
-            "condition": item.get("condition", ""),
-            "expiry": item.get("expiry", NO_EXPIRY),
+            "section": normalize_money(item.get("section", "")),
+            "benefit": normalize_money(item["benefit"]),
+            "condition": normalize_money(item.get("condition", "")),
+            "expiry": normalize_money(item.get("expiry", NO_EXPIRY)),
             "expires_at": item.get("expires_at"),
             "code": item.get("code"),
-            "apply": item["apply"],
+            "apply": normalize_money(item["apply"]),
             "link": item["link"],
             "source": item.get("source", f"{BASE}/{platform_id}/"),
             "origin": "curated",
@@ -708,6 +721,7 @@ def build(offline: bool = False) -> dict:
             "id": coupon["platform_id"],
             "name": coupon["platform"],
             "category": coupon["category"],
+            "zip": zip_for(coupon["platform_id"], coupon["category"]),
             "page_title": "",
             "source": coupon["source"],
             "updated": "",
@@ -719,23 +733,81 @@ def build(offline: bool = False) -> dict:
     platform_meta.sort(key=lambda p: (-p["count"], p["name"]))
 
     now = dt.datetime.now(KST)
+    zips = []
+    for key in ZIP_ORDER:
+        members = [p for p in platform_meta if p.get("zip") == key]
+        zips.append({
+            "key": key,
+            "label": ZIP_LABELS[key],
+            "platforms": len(members),
+            "coupons": sum(p["count"] for p in members),
+        })
     return {
         "generated_at": now.isoformat(timespec="seconds"),
         "generated_date": now.strftime("%Y-%m-%d"),
         "source": BASE,
         "count": len(all_coupons),
+        "zips": zips,
         "platforms": platform_meta,
         "coupons": all_coupons,
     }
+
+
+def normalize_existing_data() -> int:
+    """이미 만들어진 data/coupons.json 을 다시 정리한다.
+
+    - 외화 금액 표기를 한국 '원' 표기로 바꾼다.
+    - 4대 모음ZIP(zip) 값을 플랫폼·쿠폰에 채운다.
+    """
+    path = os.path.join(DATA_DIR, "coupons.json")
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    changed = 0
+    for coupon in data.get("coupons", []):
+        for field in ("benefit", "condition", "apply", "section", "expiry"):
+            before = coupon.get(field) or ""
+            after = normalize_money(before)
+            if after != before:
+                coupon[field] = after
+                changed += 1
+        coupon["zip"] = zip_for(coupon["platform_id"], coupon.get("category", "shopping"))
+    for platform in data.get("platforms", []):
+        platform["zip"] = zip_for(platform["id"], platform.get("category", "shopping"))
+    data["zips"] = [
+        {
+            "key": key,
+            "label": ZIP_LABELS[key],
+            "platforms": sum(1 for p in data.get("platforms", []) if p.get("zip") == key),
+            "coupons": sum(1 for c in data.get("coupons", []) if c.get("zip") == key),
+        }
+        for key in ZIP_ORDER
+    ]
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=1)
+    leftover = [
+        (c.get("platform"), f, c.get(f))
+        for c in data.get("coupons", [])
+        for f in ("benefit", "condition", "apply", "section", "expiry")
+        if has_foreign(c.get(f) or "")
+    ]
+    print(f"외화 표기 정리: {changed}개 문장 바뀜 / 남은 외화 {len(leftover)}건")
+    for row in leftover[:20]:
+        print(" -", row)
+    for z in data["zips"]:
+        print(f"  ZIP {z['key']:8} {z['label']:10} 플랫폼 {z['platforms']:2}개 · 쿠폰 {z['coupons']:3}개")
+    return 0 if not leftover else 1
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--offline", action="store_true", help="저장된 HTML 로만 실행")
     parser.add_argument("--check", action="store_true", help="기존 data/coupons.json 만 검증")
+    parser.add_argument("--normalize-data", action="store_true", help="기존 데이터의 외화 표기만 원화로 정리")
     args = parser.parse_args()
 
     os.makedirs(DATA_DIR, exist_ok=True)
+    if args.normalize_data:
+        return normalize_existing_data()
     if args.check:
         path = os.path.join(DATA_DIR, "coupons.json")
         data = json.load(open(path, encoding="utf-8"))
