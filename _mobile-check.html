@@ -8,7 +8,15 @@
   iframe{border:0;display:block}
 </style></head>
 <body>
-  <figure><figcaption>375 × 812 · 홈</figcaption><iframe class="phone" src="./index.html?v=chk3" width="375" height="812"></iframe></figure>
-  <figure><figcaption>430 × 812 · 홈</figcaption><iframe class="phone" src="./index.html?v=chk3" width="430" height="812"></iframe></figure>
-  <figure><figcaption>375 × 812 · 쇼핑·직구 목록</figcaption><iframe class="phone" src="./index.html?v=chk3#/zip/deal" width="375" height="812"></iframe></figure>
+  <figure><figcaption>375 × 812 · 홈</figcaption><iframe class="phone" data-w="375" data-h="812" data-view=""></iframe></figure>
+  <figure><figcaption>430 × 812 · 홈</figcaption><iframe class="phone" data-w="430" data-h="812" data-view=""></iframe></figure>
+  <figure><figcaption>375 × 812 · 쇼핑·직구 목록</figcaption><iframe class="phone" data-w="375" data-h="812" data-view="#/zip/deal"></iframe></figure>
+<script>
+  document.querySelectorAll('iframe[data-w]').forEach((f) => {
+    const v = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    f.width = f.dataset.w;
+    f.height = f.dataset.h;
+    f.src = './index.html?v=' + v + (f.dataset.view || '');
+  });
+</script>
 </body></html>
