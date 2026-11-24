@@ -347,7 +347,7 @@
 
     const pool = finalSet();
     $("view-title").textContent = title;
-    $("view-sub").textContent = `${nf(groupsOf(pool))}개 플랫폼 · ${nf(pool.length)}개 쿠폰`;
+    $("view-sub").textContent = `${nf(groupsOf(pool))}개 플랫폼`;
   }
 
   const groupsOf = (list) => new Set(list.map((c) => c.platform_id)).size;

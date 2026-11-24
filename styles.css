@@ -424,9 +424,9 @@ img, svg { max-width: 100%; }
 }
 
 @media (max-width: 380px) {
-  .zip-card { grid-template-columns: minmax(0, 1fr) clamp(96px, 27vw, 112px); gap: 10px; }
-  .zip-card.flip { grid-template-columns: clamp(96px, 27vw, 112px) minmax(0, 1fr); }
-  .zip-title .line { font-size: 20px; }
+  .zip-card { grid-template-columns: minmax(0, 1fr) clamp(100px, 29vw, 120px); gap: 10px; }
+  .zip-card.flip { grid-template-columns: clamp(100px, 29vw, 120px) minmax(0, 1fr); }
+  .zip-title .line { font-size: 24px; }
   .ghost-btn { padding-inline: 11px; font-size: 12px; }
 }
 

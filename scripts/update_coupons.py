@@ -282,6 +282,27 @@ def clean_section(title: str, platform: str) -> str:
     return text if len(text) >= 2 else ""
 
 
+
+# 기한 칸에 날짜 대신 할인 금액·조건이 적힌 표가 있다(예: "17,000원 할인").
+# 그런 값은 기한이 아니므로 조건으로 옮기고 기한은 '무기한'으로 둔다.
+EXPIRY_TOKEN = re.compile(
+    r"까지|마감|소진|상시|매일|한정|선착순|무기한|기간|종료|"
+    r"\d{4}|\d{1,2}\s*[./월]|\d+\s*일|\d+\s*주|\d+\s*개월|\d{1,2}:\d{2}"
+)
+MONEY_ONLY = re.compile(r"^\s*(?:약\s*)?[\d,]+\s*원\s*(?:할인|상당|이상)?\s*$")
+
+
+def clean_expiry(expiry_text: str, condition: str) -> tuple[str, str]:
+    """기한 칸에 기한이 아닌 값이 오면 조건으로 옮기고 기한은 '무기한'으로 만든다."""
+    text = (expiry_text or "").strip()
+    if not text or text == NO_EXPIRY or EXPIRY_TOKEN.search(text):
+        return text, condition
+    if MONEY_ONLY.match(text):
+        return NO_EXPIRY, condition
+    merged = (condition + " " + text).strip()
+    return NO_EXPIRY, merged
+
+
 def tidy_benefit(text: str) -> str:
     benefit = one_line(text).replace("합니다", "")
     benefit = re.sub(r"\s*·\s*", " · ", benefit)
@@ -504,6 +525,7 @@ def platform_coupons(slug: str, name: str, category: str, page: str, link_cache:
                 condition = (condition + " " + raw_expiry).strip()
                 raw_expiry = ""
             expiry_text = normalize_money(format_expiry(row["expires_at"], raw_expiry) or NO_EXPIRY)
+            expiry_text, condition = clean_expiry(expiry_text, condition)
             tag = normalize_money(row["label"] or clean_section(section_title, name))
             if code and usage:
                 apply_text = usage
@@ -763,6 +785,7 @@ def normalize_existing_data() -> int:
     with open(path, encoding="utf-8") as fh:
         data = json.load(fh)
     changed = 0
+    expiry_fixed = 0
     for coupon in data.get("coupons", []):
         for field in ("benefit", "condition", "apply", "section", "expiry"):
             before = coupon.get(field) or ""
@@ -771,6 +794,11 @@ def normalize_existing_data() -> int:
                 coupon[field] = after
                 changed += 1
         coupon["zip"] = zip_for(coupon["platform_id"], coupon.get("category", "shopping"))
+        fixed_expiry, fixed_condition = clean_expiry(coupon.get("expiry") or "", coupon.get("condition") or "")
+        if fixed_expiry != (coupon.get("expiry") or "") or fixed_condition != (coupon.get("condition") or ""):
+            coupon["expiry"] = fixed_expiry
+            coupon["condition"] = fixed_condition
+            expiry_fixed += 1
     for platform in data.get("platforms", []):
         platform["zip"] = zip_for(platform["id"], platform.get("category", "shopping"))
     data["zips"] = [
@@ -791,6 +819,7 @@ def normalize_existing_data() -> int:
         if has_foreign(c.get(f) or "")
     ]
     print(f"외화 표기 정리: {changed}개 문장 바뀜 / 남은 외화 {len(leftover)}건")
+    print(f"기한 칸 정리: {expiry_fixed}건을 '무기한'으로 바꾸고 내용은 조건으로 옮김")
     for row in leftover[:20]:
         print(" -", row)
     for z in data["zips"]:
