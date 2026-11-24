@@ -53,7 +53,7 @@ DATA_DIR = os.path.join(ROOT, "data")
 CACHE_DIR = os.path.join(ROOT, ".cache")
 UA = "Mozilla/5.0 (compatible; CouponLibraryBot/1.0; +https://github.com/gubin0425k-a11y/coupon-library)"
 KST = dt.timezone(dt.timedelta(hours=9))
-NO_EXPIRY = "사용 기한 표기 없음"
+NO_EXPIRY = "무기한"
 
 
 # --------------------------------------------------------------------------
@@ -585,8 +585,8 @@ def validate(coupons: list[dict]) -> list[str]:
         if c.get("type") not in valid_types:
             problems.append(f"{idx}:{c.get('platform')}: 알 수 없는 유형 {c.get('type')}")
         expiry = c.get("expiry") or ""
-        if expiry and "사용 기한 표기 없음" not in expiry:
-            if not re.search(r"\d", expiry) and not any(t in expiry for t in ("소진", "상시", "선착순", "마감", "한정", "매일")):
+        if expiry and "무기한" not in expiry:
+            if not re.search(r"\d", expiry) and not any(t in expiry for t in ("소진", "상시", "선착순", "마감", "한정", "매일", "무기한")):
                 problems.append(f"{idx}:{c.get('platform')}: 기한에 날짜 없음 '{expiry}'")
         link = str(c.get("link") or "")
         if link and not link.startswith("http"):

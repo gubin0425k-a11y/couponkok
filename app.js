@@ -266,8 +266,8 @@
       el("div", { class: "row expiry" }, [
         el("dt", { text: "사용 기한" }),
         el("dd", {
-          class: c.expiry && c.expiry.includes("표기 없음") ? "none" : "",
-          text: c.expiry || "사용 기한 표기 없음",
+          class: c.expiry && c.expiry.includes("무기한") ? "none" : "",
+          text: c.expiry || "무기한",
         }),
       ]),
     ]);
