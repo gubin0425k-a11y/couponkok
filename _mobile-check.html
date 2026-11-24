@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><title>쿠폰콕 화면 점검</title>
 <style>
-  body{margin:0;background:#e9e6df;font:13px/1.4 system-ui,sans-serif;display:flex;gap:16px;padding:12px;align-items:flex-start}
+  body{margin:0;background:#e9e6df;font:13px/1.4 system-ui,sans-serif;display:flex;flex-wrap:wrap;gap:16px;padding:12px;align-items:flex-start}
   .phone{background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.15)}
   figure{margin:0}
   figcaption{font-weight:700;color:#333;padding:6px 2px}
   iframe{border:0;display:block}
 </style></head>
 <body>
-  <figure><figcaption>375 × 812</figcaption><iframe class="phone" src="./index.html" width="375" height="812"></iframe></figure>
-  <figure><figcaption>430 × 812</figcaption><iframe class="phone" src="./index.html" width="430" height="812"></iframe></figure>
+  <figure><figcaption>375 × 812 · 홈</figcaption><iframe class="phone" src="./index.html?v=chk3" width="375" height="812"></iframe></figure>
+  <figure><figcaption>430 × 812 · 홈</figcaption><iframe class="phone" src="./index.html?v=chk3" width="430" height="812"></iframe></figure>
+  <figure><figcaption>375 × 812 · 쇼핑·직구 목록</figcaption><iframe class="phone" src="./index.html?v=chk3#/zip/deal" width="375" height="812"></iframe></figure>
 </body></html>
