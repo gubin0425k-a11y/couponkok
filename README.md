@@ -4,8 +4,11 @@
 플랫폼별 · 유형별로 정리한 정적 사이트입니다.
 
 - 로그인·회원가입·개인정보 수집 없음. 접속하면 바로 목록이 보입니다.
+- 첫 화면은 **4대 모음ZIP**(여행 / 쇼핑·직구 / 생활 / 패션) 카드로 시작하고, 카드를 누르면 그 묶음의 쿠폰 목록이 열립니다.
 - 각 쿠폰은 **할인 혜택 / 적용 방법 / 사용 기한**을 함께 표시합니다.
-  사용 기한이 없는 쿠폰은 `사용 기한 표기 없음`으로 표시합니다.
+  사용 기한이 정해지지 않은 상시 쿠폰은 `무기한`으로 표시합니다.
+- 금액 표기는 한국 `원` 하나로 통일합니다. 해외 사이트의 외화 금액은 `scripts/currency.py` 가
+  기준 환율로 환산해 `약 14,000원` 처럼 적습니다.
 - 기본 동작은 **전용 링크 바로가기**(새 탭)입니다. 코드가 있는 쿠폰만 코드와 복사 버튼을 함께 보여 줍니다.
 
 ## 구조
@@ -17,7 +20,9 @@ app.js                필터·검색·복사 (의존성 없음)
 data/coupons.json     수집 결과 (사이트가 읽는 데이터)
 data/curated.json     자동 수집으로 잡히지 않는 대표 조건부 쿠폰(직접 확인 항목)
 scripts/update_coupons.py   수집·검증 스크립트 (표준 라이브러리만 사용)
-scripts/platforms.py        플랫폼 목록·분류 규칙
+scripts/platforms.py        플랫폼 목록·분류 규칙, 4대 모음ZIP 배정(ZIP_OF)
+scripts/currency.py         외화→원 환산·정규화 (수집·검증에서 함께 사용)
+assets/zip-*.webp|png       모음ZIP 카드 일러스트 (원본 720×720)
 scripts/official_urls.py    플랫폼 공식 주소(링크를 못 얻은 경우 대체)
 .github/workflows/update-coupons.yml   자동 업데이트 + GitHub Pages 배포
 ```
@@ -32,7 +37,7 @@ scripts/official_urls.py    플랫폼 공식 주소(링크를 못 얻은 경우 
    각 페이지의 표에서 코드·혜택·조건·사용 기한을 뽑아 `data/coupons.json` 을 새로 만듭니다.
    - 기한이 지난 행(`종료됨` 또는 날짜 경과)은 넣지 않습니다.
    - 혜택이 비었거나 상시 할인가 목록에 불과한 행은 버립니다.
-2. `--check` 로 필수 항목(혜택·적용 방법·사용 기한·유형·링크) 누락과 형식을 검증합니다.
+2. `--check` 로 필수 항목(혜택·적용 방법·사용 기한·유형·링크) 누락과 형식, 외화 표기 잔존을 검증합니다.
 3. 바뀐 내용이 있으면 봇 이름으로 커밋하고, 같은 실행에서 GitHub Pages 로 배포합니다.
 
 데이터 출처는 공개 프로모션 정리 페이지이며, 사이트의 `전용 링크` 는 각 표에 연결된 이동 주소를 그대로 씁니다.
@@ -43,6 +48,7 @@ scripts/official_urls.py    플랫폼 공식 주소(링크를 못 얻은 경우 
 ```bash
 python3 scripts/update_coupons.py      # 수집 (네트워크 필요)
 python3 scripts/update_coupons.py --check
+python3 scripts/update_coupons.py --normalize-data   # 기존 JSON의 외화 표기·기한·ZIP 정리
 python3 -m http.server 8000            # http://localhost:8000
 ```
 
