@@ -376,6 +376,7 @@ def parse_tables(section_title: str, section_html: str, platform_link_cache: dic
                 link = anchor.group(1)
             if link and not link.startswith("http"):
                 link = None
+            link = strip_affiliate(link) if link else link
 
             expires_at, expired = parse_expiry(expiry_text)
             results.append({
@@ -487,6 +488,65 @@ def is_source_link(url: str) -> bool:
     """수집 사이트(benefitshub)가 자기 페이지로 돌리는 링크인지."""
     host = urllib.parse.urlparse(url or "").netloc.lower()
     return host == "benefitshub.co.kr" or host.endswith(".benefitshub.co.kr")
+
+
+# 수집 사이트가 자기 제휴 실적을 남기려고 링크에 붙여 둔 꼬리표.
+# (예: utm_content=benefitshub, tag=benefitshub07-20 같은 아마존 어소시에이트·라쿠텐 링크)
+AFFILIATE_MARK = "benefitshub"
+AFFILIATE_IDS = ("hmwdp6wujjc",)  # 수집 사이트의 제휴 식별자(ranEAID/ranSiteID)
+AFFILIATE_PARAMS = {
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "affil",
+    "ranmid",
+    "raneaid",
+    "ransiteid",
+    "tag",
+    "linkcode",
+    "linkid",
+    "ref_",
+    "ref",
+}
+
+
+def has_affiliate_mark(url: str) -> bool:
+    """링크에 수집 사이트의 제휴 꼬리표가 남아 있는지."""
+    query = urllib.parse.urlparse(url or "").query.lower()
+    if not query:
+        return False
+    return AFFILIATE_MARK in query or any(ident in query for ident in AFFILIATE_IDS)
+
+
+def strip_affiliate(url: str) -> str:
+    """원 출처(수집 사이트)의 제휴 태그·추적 파라미터를 링크에서 벗긴다.
+
+    제휴 꼬리표가 붙은 링크만 손대고, 그 밖의 링크는 그대로 둔다.
+    제휴망 리다이렉트 주소(예: click.linksynergy.com deeplink)는 목적지(murl)로 풀고,
+    그 밖의 링크는 제휴망 파라미터(ranSiteID 등)와 utm_* 추적값을 지워 플랫폼 주소만 남긴다.
+    """
+    if not url or not has_affiliate_mark(url):
+        return url
+    url = html.unescape(url)
+    parts = urllib.parse.urlsplit(url)
+    params = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    # 제휴 리다이렉트 주소는 목적지가 따로 들어 있으므로 그 주소를 꺼내 쓴다.
+    if "deeplink" in parts.path.lower():
+        for key, value in params:
+            if key.lower() in ("murl", "url", "u") and value.startswith("http"):
+                return strip_affiliate(urllib.parse.unquote(value))
+    kept = [
+        (key, value)
+        for key, value in params
+        if key
+        and key.lower() not in AFFILIATE_PARAMS
+        and AFFILIATE_MARK not in (value or "").lower()
+        and not any(ident in (value or "").lower() for ident in AFFILIATE_IDS)
+    ]
+    query = urllib.parse.urlencode(kept)
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, query, parts.fragment))
 
 
 def platform_coupons(slug: str, name: str, category: str, page: str, link_cache: dict) -> tuple[list[dict], dict]:
@@ -613,6 +673,8 @@ def validate(coupons: list[dict]) -> list[str]:
         link = str(c.get("link") or "")
         if link and not link.startswith("http"):
             problems.append(f"{idx}:{c.get('platform')}: 링크 형식 오류")
+        if link and has_affiliate_mark(link):
+            problems.append(f"{idx}:{c.get('platform')}: 링크에 원 출처 제휴 파라미터 '{link}'")
         for field in ("benefit", "condition", "apply", "section", "expiry"):
             if has_foreign(c.get(field) or ""):
                 problems.append(f"{idx}:{c.get('platform')}:{field} 에 외화 표기 '{c.get(field)}'")
@@ -654,7 +716,7 @@ def load_curated(platform_names: dict[str, str]) -> list[dict]:
             "expires_at": item.get("expires_at"),
             "code": item.get("code"),
             "apply": normalize_money(item["apply"]),
-            "link": item["link"],
+            "link": strip_affiliate(item["link"]),
             "source": item.get("source", f"{BASE}/{platform_id}/"),
             "origin": "curated",
         })
@@ -780,13 +842,20 @@ def normalize_existing_data() -> int:
 
     - 외화 금액 표기를 한국 '원' 표기로 바꾼다.
     - 4대 모음ZIP(zip) 값을 플랫폼·쿠폰에 채운다.
+    - 링크에 남아 있는 원 출처 제휴 파라미터를 벗긴다.
     """
     path = os.path.join(DATA_DIR, "coupons.json")
     with open(path, encoding="utf-8") as fh:
         data = json.load(fh)
     changed = 0
     expiry_fixed = 0
+    link_fixed = 0
     for coupon in data.get("coupons", []):
+        before_link = coupon.get("link") or ""
+        after_link = strip_affiliate(before_link)
+        if after_link != before_link:
+            coupon["link"] = after_link
+            link_fixed += 1
         for field in ("benefit", "condition", "apply", "section", "expiry"):
             before = coupon.get(field) or ""
             after = normalize_money(before)
@@ -818,8 +887,14 @@ def normalize_existing_data() -> int:
         for f in ("benefit", "condition", "apply", "section", "expiry")
         if has_foreign(c.get(f) or "")
     ]
-    print(f"외화 표기 정리: {changed}개 문장 바뀜 / 남은 외화 {len(leftover)}건")
+    leftover += [
+        (c.get("platform"), "link", c.get("link"))
+        for c in data.get("coupons", [])
+        if has_affiliate_mark(c.get("link") or "")
+    ]
+    print(f"외화 표기 정리: {changed}개 문장 바뀜 / 남은 정리 대상 {len(leftover)}건")
     print(f"기한 칸 정리: {expiry_fixed}건을 '무기한'으로 바꾸고 내용은 조건으로 옮김")
+    print(f"제휴 파라미터 정리: {link_fixed}개 링크")
     for row in leftover[:20]:
         print(" -", row)
     for z in data["zips"]:

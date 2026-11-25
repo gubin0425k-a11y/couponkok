@@ -37,10 +37,13 @@ scripts/official_urls.py    플랫폼 공식 주소(링크를 못 얻은 경우 
    각 페이지의 표에서 코드·혜택·조건·사용 기한을 뽑아 `data/coupons.json` 을 새로 만듭니다.
    - 기한이 지난 행(`종료됨` 또는 날짜 경과)은 넣지 않습니다.
    - 혜택이 비었거나 상시 할인가 목록에 불과한 행은 버립니다.
-2. `--check` 로 필수 항목(혜택·적용 방법·사용 기한·유형·링크) 누락과 형식, 외화 표기 잔존을 검증합니다.
+2. `--check` 로 필수 항목(혜택·적용 방법·사용 기한·유형·링크) 누락과 형식, 외화 표기 잔존,
+   링크에 남은 원 출처 제휴 파라미터를 검증합니다.
 3. 바뀐 내용이 있으면 봇 이름으로 커밋하고, 같은 실행에서 GitHub Pages 로 배포합니다.
 
-데이터 출처는 공개 프로모션 정리 페이지이며, 사이트의 `전용 링크` 는 각 표에 연결된 이동 주소를 그대로 씁니다.
+데이터 출처는 공개 프로모션 정리 페이지이며, 사이트의 `전용 링크` 는 각 표에 연결된 이동 주소를 씁니다.
+이때 수집한 링크에 붙어 있는 원 출처의 제휴 파라미터(`utm_content=benefitshub`, `tag=benefitshub07-20`,
+`ranSiteID` 등)는 수집 단계에서 자동으로 벗겨 내고, 제휴 리다이렉트 주소는 목적지 주소로 풀어 씁니다.
 이동 주소를 얻지 못한 항목은 플랫폼 공식 사이트로 연결합니다.
 
 ## 로컬 실행
@@ -48,7 +51,7 @@ scripts/official_urls.py    플랫폼 공식 주소(링크를 못 얻은 경우 
 ```bash
 python3 scripts/update_coupons.py      # 수집 (네트워크 필요)
 python3 scripts/update_coupons.py --check
-python3 scripts/update_coupons.py --normalize-data   # 기존 JSON의 외화 표기·기한·ZIP 정리
+python3 scripts/update_coupons.py --normalize-data   # 기존 JSON의 외화 표기·기한·ZIP·제휴 파라미터 정리
 python3 -m http.server 8000            # http://localhost:8000
 ```
 
